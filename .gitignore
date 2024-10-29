@@ -34,4 +34,4 @@
 /.github/
 
 # Ignore database files
-/db/
+/db/seeds.rb
