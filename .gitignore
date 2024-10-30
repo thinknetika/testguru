@@ -34,4 +34,5 @@
 /.github/
 
 # Ignore database files
-/db/
+/db/*
+!/db/schema.rb
