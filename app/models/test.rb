@@ -1,9 +1,9 @@
 class Test < ApplicationRecord
+  enum level: { easy: 0, medium: 1, hard: 2 }, validate: true
+
   belongs_to :category
+
   has_many :questions
 
-  enum level: [ :easy, :medium, :hard ] # указываем уровни сложности
-
-  validates :title, presence: true # проверка на предмет пустой строки, null валидируется на уровне БД
-  validates :level, inclusion: { in: levels.values } # проверка на предмет предустановленных уровней сложности
+  validates :title, presence: true
 end
