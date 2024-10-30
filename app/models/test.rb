@@ -6,4 +6,8 @@ class Test < ApplicationRecord
   has_many :questions
 
   validates :title, presence: true
+
+  def self.all_tests(test_category)
+    where(category: test_category)
+  end
 end
