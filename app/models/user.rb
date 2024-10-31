@@ -1,6 +1,12 @@
 class User < ApplicationRecord
-  validates :nickname, presence: true # проверка на предмет пустой строки, null валидируется на уровне БД
+  validates :nickname, presence: true
   validates :email, uniqueness: true,
-            format: { with: URI::MailTo::EMAIL_REGEXP } # проверка на уникальность,
-                                                        # и регулярным выражением
+            format: { with: URI::MailTo::EMAIL_REGEXP }
+  def tests(params = [])
+    return tests if params.empty?
+
+    key, value = params
+
+    tests.where(key => value)
+  end
 end
