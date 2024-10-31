@@ -9,7 +9,7 @@ class Test < ApplicationRecord
 
   validates :title, presence: true
 
-  def self.all_tests(test_category)
-    where(category: test_category)
+  def self.tests_title(category)
+    where(category: category).select(:title).order(title: :desc).pluck(:title)
   end
 end
