@@ -7,6 +7,10 @@ class Test < ApplicationRecord
 
   has_many :questions
 
+  has_many :test_passages
+
+  has_many :users, through: :test_passage
+
   validates :title, presence: true
 
   def self.tests_title(category)
