@@ -17,7 +17,6 @@
 # Ignore storage (uploaded files in development and any SQLite databases).
 /storage/*
 !/storage/.keep
-/tmp/*
 !/tmp/storage/
 !/tmp/storage/.keep
 
@@ -36,3 +35,6 @@
 # Ignore database files
 /db/*
 !/db/schema.rb
+!/db/seeds.rb
+
+/identifier.sqlite
