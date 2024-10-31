@@ -70,3 +70,11 @@ Answer.create(body: 'Ответ 2 на вопрос 1 Прозводительн
 
 Answer.create(body: 'Ответ 1 на вопрос 2 Прозводительность level 2', question: question_6_2)
 Answer.create(body: 'Ответ 2 на вопрос 2 Прозводительность level 2', question: question_6_2)
+
+TestPassage.create(user: user_1, test: test_1)
+TestPassage.create(user: user_1, test: test_2)
+
+TestPassage.create(user: user_2, test: test_1)
+TestPassage.create(user: user_2, test: test_4)
+
+
