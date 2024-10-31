@@ -1,10 +1,3 @@
-[
-  { title: 'IQ' },
-  { title: 'Психология' },
-  { title: 'Прозводительность' }
-].
-  each.with_index(1) { |params, index| eval("category_#{index} = Category.create(#{params})") }
-
 category_1 = Category.create!(title: 'IQ')
 category_2 = Category.create!(title: 'Психология')
 category_3 = Category.create!(title: 'Прозводительность')
