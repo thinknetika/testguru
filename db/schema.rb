@@ -37,8 +37,6 @@ ActiveRecord::Schema[7.2].define(version: 2024_10_31_191523) do
   create_table "test_passages", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "test_id", null: false
-    t.boolean "success", default: false, null: false
-    t.integer "status", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["test_id"], name: "index_test_passages_on_test_id"
