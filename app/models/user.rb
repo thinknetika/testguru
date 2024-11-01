@@ -5,6 +5,8 @@ class User < ApplicationRecord
             format: { with: URI::MailTo::EMAIL_REGEXP }
 
   def tests_by_level(level)
-    Test.joins(:test_passages).where(test_passages: { user_id: id }, tests: { level: level })
+    test_id = TestPassage.where(user_id: id).pluck(:test_id)
+
+    Test.where(id: test_id, level: level)
   end
 end
