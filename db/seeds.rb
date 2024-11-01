@@ -78,4 +78,4 @@ test_passages_collection = [
   { user_id: users[1].id, test_id: tests[3].id }
 ]
 
-TestPassage.create(test_passages_collection)
+TestPassage.create!(test_passages_collection)
