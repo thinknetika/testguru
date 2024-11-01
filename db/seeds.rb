@@ -1,107 +1,81 @@
-find_id = proc { |model, attribute, value| model.find_by(attribute => value).id }
-create_record = proc { |model, attributes| model.create!(attributes) }
-
-# Коллекции параметров
-categories = [
+categories_collection = [
   { title: 'IQ' },
   { title: 'Психология' },
   { title: 'Прозводительность' }
 ]
 
-users = [
+categories = Category.create!(categories_collection)
+
+users_collection = [
   { nickname: 'user_1', email: 'user_1@mail.ru' },
   { nickname: 'user_2', email: 'user_2@mail.ru' }
 ]
 
-categories.each { |attrs| create_record.call(Category, attrs) }
-users.each { |attrs| create_record.call(User, attrs) }
+users = User.create!(users_collection)
 
-tests = [
-  {
-    title: 'Тест IQ 0', level: :easy,
-    category_id: find_id.call(Category, :title, categories[0][:title]),
-    author_id: find_id.call(User, :nickname, users[0][:nickname])
-  },
-  { title: 'Тест IQ 1', level: :medium,
-    category_id: find_id.call(Category, :title, categories[0][:title]),
-    author_id: find_id.call(User, :nickname, users[1][:nickname])
-  },
-  {
-    title: 'Тест Психология 1', level: 1,
-    category_id: find_id.call(Category, :title, categories[1][:title]),
-    author_id: find_id.call(User, :nickname, users[0][:nickname])
-  },
-  {
-    title: 'Тест Психология 2', level: 2,
-    category_id: find_id.call(Category, :title, categories[1][:title]),
-    author_id: find_id.call(User, :nickname, users[0][:nickname])
-  },
-  {
-    title: 'Тест Прозводительность 0', level: 0,
-    category_id: find_id.call(Category, :title, categories[2][:title]),
-    author_id: find_id.call(User, :nickname, users[1][:nickname])
-  },
-  {
-    title: 'Тест Прозводительность 2', level: 2,
-    category_id: find_id.call(Category, :title, categories[2][:title]),
-    author_id: find_id.call(User, :nickname, users[1][:nickname])
-  }
+tests_collection = [
+  { title: 'Тест IQ 0', level: :easy, category_id: categories[0].id, author_id: users[0].id },
+  { title: 'Тест IQ 1', level: :medium, category_id: categories[0].id, author_id: users[1].id },
+  { title: 'Тест Психология 1', level: 1, category_id: categories[1].id, author_id: users[0].id },
+  { title: 'Тест Психология 2', level: 2, category_id: categories[1].id, author_id: users[0].id },
+  { title: 'Тест Прозводительность 0', level: 0, category_id: categories[2].id, author_id: users[1].id },
+  { title: 'Тест Прозводительность 2', level: 2, category_id: categories[2].id, author_id: users[1].id }
 ]
 
-tests.each { |attrs| create_record.call(Test, attrs) }
+tests = Test.create!(tests_collection)
 
-questions = [
-  { body: 'Вопрос 1 Тест IQ 0 level 0', test_id: find_id.call(Test, :title, tests[0][:title]) },
-  { body: 'Вопрос 2 Тест IQ 0 level 0', test_id: find_id.call(Test, :title, tests[0][:title]) },
-  { body: 'Вопрос 1 Тест IQ 1 level 1', test_id: find_id.call(Test, :title, tests[1][:title]) },
-  { body: 'Вопрос 2 Тест IQ 1 level 1', test_id: find_id.call(Test, :title, tests[1][:title]) },
-  { body: 'Вопрос 1 Тест Психология level 1', test_id: find_id.call(Test, :title, tests[2][:title]) },
-  { body: 'Вопрос 2 Тест Психология level 1', test_id: find_id.call(Test, :title, tests[2][:title]) },
-  { body: 'Вопрос 1 Тест Психология level 2', test_id: find_id.call(Test, :title, tests[3][:title]) },
-  { body: 'Вопрос 2 Тест Психология level 2', test_id: find_id.call(Test, :title, tests[4][:title]) },
-  { body: 'Вопрос 1 Тест Прозводительность level 0', test_id: find_id.call(Test, :title, tests[4][:title]) },
-  { body: 'Вопрос 2 Тест Прозводительность level 0', test_id: find_id.call(Test, :title, tests[4][:title]) },
-  { body: 'Вопрос 1 Тест Прозводительность level 2', test_id: find_id.call(Test, :title, tests[5][:title]) },
-  { body: 'Вопрос 2 Тест Прозводительность level 2', test_id: find_id.call(Test, :title, tests[5][:title]) }
+questions_collection = [
+  { body: 'Вопрос 1 Тест IQ 0 level 0', test_id: tests[0].id },
+  { body: 'Вопрос 2 Тест IQ 0 level 0', test_id: tests[0].id },
+  { body: 'Вопрос 1 Тест IQ 1 level 1', test_id: tests[1].id },
+  { body: 'Вопрос 2 Тест IQ 1 level 1', test_id: tests[1].id },
+  { body: 'Вопрос 1 Тест Психология level 1', test_id: tests[2].id },
+  { body: 'Вопрос 2 Тест Психология level 1', test_id: tests[2].id },
+  { body: 'Вопрос 1 Тест Психология level 2', test_id: tests[3].id },
+  { body: 'Вопрос 2 Тест Психология level 2', test_id: tests[4].id },
+  { body: 'Вопрос 1 Тест Прозводительность level 0', test_id: tests[4].id },
+  { body: 'Вопрос 2 Тест Прозводительность level 0', test_id: tests[4].id },
+  { body: 'Вопрос 1 Тест Прозводительность level 2', test_id: tests[5].id },
+  { body: 'Вопрос 2 Тест Прозводительность level 2', test_id: tests[5].id }
 ]
 
-questions.each { |attrs| create_record.call(Question, attrs) }
+questions = Question.create!(questions_collection)
 
-answers = [
-  { body: 'Ответ 1 на вопрос 1 Тест IQ level 0', question_id: find_id.call(Question, :body, questions[0][:body]), correct: true },
-  { body: 'Ответ 2 на вопрос 1 Тест IQ level 0', question_id: find_id.call(Question, :body, questions[0][:body]) },
-  { body: 'Ответ 1 на вопрос 2 Тест IQ level 0', question_id: find_id.call(Question, :body, questions[1][:body]), correct: true },
-  { body: 'Ответ 2 на вопрос 2 Тест IQ level 0', question_id: find_id.call(Question, :body, questions[1][:body]) },
-  { body: 'Ответ 1 на вопрос 1 Тест IQ level 1', question_id: find_id.call(Question, :body, questions[2][:body]), correct: true },
-  { body: 'Ответ 2 на вопрос 1 Тест IQ level 1', question_id: find_id.call(Question, :body, questions[2][:body]) },
-  { body: 'Ответ 1 на вопрос 2 Тест IQ level 1', question_id: find_id.call(Question, :body, questions[3][:body]), correct: true },
-  { body: 'Ответ 2 на вопрос 2 Тест IQ level 1', question_id: find_id.call(Question, :body, questions[3][:body]) },
-  { body: 'Ответ 1 на вопрос 1 Психология level 1', question_id: find_id.call(Question, :body, questions[4][:body]), correct: true },
-  { body: 'Ответ 2 на вопрос 1 Психология level 1', question_id: find_id.call(Question, :body, questions[4][:body]) },
-  { body: 'Ответ 1 на вопрос 2 Психология level 1', question_id: find_id.call(Question, :body, questions[5][:body]), correct: true },
-  { body: 'Ответ 2 на вопрос 2 Психология level 1', question_id: find_id.call(Question, :body, questions[5][:body]) },
-  { body: 'Ответ 1 на вопрос 1 Психология level 2', question_id: find_id.call(Question, :body, questions[6][:body]), correct: true },
-  { body: 'Ответ 2 на вопрос 1 Психология level 1', question_id: find_id.call(Question, :body, questions[6][:body]) },
-  { body: 'Ответ 1 на вопрос 2 Психология level 2', question_id: find_id.call(Question, :body, questions[7][:body]), correct: true },
-  { body: 'Ответ 2 на вопрос 2 Психология level 2', question_id: find_id.call(Question, :body, questions[7][:body]) },
-  { body: 'Ответ 1 на вопрос 1 Прозводительность level 0', question_id: find_id.call(Question, :body, questions[8][:body]), correct: true },
-  { body: 'Ответ 2 на вопрос 1 Прозводительность level 0', question_id: find_id.call(Question, :body, questions[8][:body]) },
-  { body: 'Ответ 1 на вопрос 2 Прозводительность level 0', question_id: find_id.call(Question, :body, questions[9][:body]), correct: true },
-  { body: 'Ответ 2 на вопрос 2 Прозводительность level 0', question_id: find_id.call(Question, :body, questions[9][:body]) },
-  { body: 'Ответ 1 на вопрос 1 Прозводительность level 2', question_id: find_id.call(Question, :body, questions[10][:body]), correct: true },
-  { body: 'Ответ 2 на вопрос 1 Прозводительность level 2', question_id: find_id.call(Question, :body, questions[10][:body]) },
-  { body: 'Ответ 1 на вопрос 2 Прозводительность level 2', question_id: find_id.call(Question, :body, questions[11][:body]), correct: true },
-  { body: 'Ответ 2 на вопрос 2 Прозводительность level 2', question_id: find_id.call(Question, :body, questions[11][:body]) }
+answers_collection = [
+  { body: 'Ответ 1 на вопрос 1 Тест IQ level 0', question_id: questions[0].id, correct: true },
+  { body: 'Ответ 2 на вопрос 1 Тест IQ level 0', question_id: questions[0].id },
+  { body: 'Ответ 1 на вопрос 2 Тест IQ level 0', question_id: questions[1].id, correct: true },
+  { body: 'Ответ 2 на вопрос 2 Тест IQ level 0', question_id: questions[1].id },
+  { body: 'Ответ 1 на вопрос 1 Тест IQ level 1', question_id: questions[2].id, correct: true },
+  { body: 'Ответ 2 на вопрос 1 Тест IQ level 1', question_id: questions[2].id },
+  { body: 'Ответ 1 на вопрос 2 Тест IQ level 1', question_id: questions[3].id, correct: true },
+  { body: 'Ответ 2 на вопрос 2 Тест IQ level 1', question_id: questions[3].id },
+  { body: 'Ответ 1 на вопрос 1 Психология level 1', question_id: questions[4].id, correct: true },
+  { body: 'Ответ 2 на вопрос 1 Психология level 1', question_id: questions[4].id },
+  { body: 'Ответ 1 на вопрос 2 Психология level 1', question_id: questions[5].id, correct: true },
+  { body: 'Ответ 2 на вопрос 2 Психология level 1', question_id: questions[5].id },
+  { body: 'Ответ 1 на вопрос 1 Психология level 2', question_id: questions[6].id, correct: true },
+  { body: 'Ответ 2 на вопрос 1 Психология level 1', question_id: questions[6].id },
+  { body: 'Ответ 1 на вопрос 2 Психология level 2', question_id: questions[7].id, correct: true },
+  { body: 'Ответ 2 на вопрос 2 Психология level 2', question_id: questions[7].id },
+  { body: 'Ответ 1 на вопрос 1 Прозводительность level 0', question_id: questions[8].id, correct: true },
+  { body: 'Ответ 2 на вопрос 1 Прозводительность level 0', question_id: questions[8].id },
+  { body: 'Ответ 1 на вопрос 2 Прозводительность level 0', question_id: questions[9].id, correct: true },
+  { body: 'Ответ 2 на вопрос 2 Прозводительность level 0', question_id: questions[9].id },
+  { body: 'Ответ 1 на вопрос 1 Прозводительность level 2', question_id: questions[10].id, correct: true },
+  { body: 'Ответ 2 на вопрос 1 Прозводительность level 2', question_id: questions[10].id },
+  { body: 'Ответ 1 на вопрос 2 Прозводительность level 2', question_id: questions[11].id, correct: true },
+  { body: 'Ответ 2 на вопрос 2 Прозводительность level 2', question_id: questions[11].id }
 ]
 
-test_passages = [
-  { user_id: find_id.call(User, :nickname, users[0][:nickname]), test_id: find_id.call(Test, :title, tests[0][:title]) },
-  { user_id: find_id.call(User, :nickname, users[0][:nickname]), test_id: find_id.call(Test, :title, tests[1][:title]) },
-  { user_id: find_id.call(User, :nickname, users[0][:nickname]), test_id: find_id.call(Test, :title, tests[4][:title]) },
-  { user_id: find_id.call(User, :nickname, users[1][:nickname]), test_id: find_id.call(Test, :title, tests[0][:title]) },
-  { user_id: find_id.call(User, :nickname, users[1][:nickname]), test_id: find_id.call(Test, :title, tests[3][:title]) },
+Answer.create!(answers_collection)
+
+test_passages_collection = [
+  { user_id: users[0].id, test_id: tests[0].id },
+  { user_id: users[0].id, test_id: tests[1].id },
+  { user_id: users[0].id, test_id: tests[4].id },
+  { user_id: users[1].id, test_id: tests[0].id },
+  { user_id: users[1].id, test_id: tests[3].id }
 ]
 
-# Создание записей
-answers.each { |attrs| create_record.call(Answer, attrs) }
-test_passages.each { |attrs| create_record.call(TestPassage, attrs) }
+TestPassage.create(test_passages_collection)
