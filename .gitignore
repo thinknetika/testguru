@@ -35,6 +35,5 @@
 # Ignore database files
 /db/*
 !/db/schema.rb
-!/db/seeds.rb
 
 /identifier.sqlite
