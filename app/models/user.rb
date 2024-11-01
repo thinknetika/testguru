@@ -1,8 +1,7 @@
 class User < ApplicationRecord
 
   def tests_by_level(level)
-    test_id = TestPassage.where(user_id: id).pluck(:test_id)
-
-    Test.where(id: test_id, level: level)
+    Test.joins("JOIN test_passages ON test_passages.test_id = tests.id").
+      where(tests: { level: level }, test_passages: { user_id: id })
   end
 end
