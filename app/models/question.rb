@@ -1,3 +1,1 @@
-class Question < ApplicationRecord
-  validates :body, length: { minimum: 20 }
-end
+class Question < ApplicationRecord; end

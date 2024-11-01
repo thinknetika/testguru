@@ -1,8 +1,4 @@
 class User < ApplicationRecord
-  validates :nickname, presence: true
-
-  validates :email, uniqueness: true,
-            format: { with: URI::MailTo::EMAIL_REGEXP }
 
   def tests_by_level(level)
     test_id = TestPassage.where(user_id: id).pluck(:test_id)
