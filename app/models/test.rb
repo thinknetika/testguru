@@ -3,7 +3,9 @@ class Test < ApplicationRecord
 
   validates :title, presence: true
 
-  def self.tests_title(category)
-    where(category: category).order(title: :desc).pluck(:title)
+  def self.sorted_test_by_category(category_title)
+    category_id = Category.find_by(title: category_title).id
+
+    where(category_id: category_id).order(title: :desc).pluck(:title)
   end
 end
