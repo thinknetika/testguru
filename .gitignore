@@ -35,5 +35,6 @@
 # Ignore database files
 /db/*
 !/db/schema.rb
+!/db/migrate/*
 
 /identifier.sqlite
