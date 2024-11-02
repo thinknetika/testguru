@@ -1,1 +1,3 @@
-class Answer < ApplicationRecord; end
+class Answer < ApplicationRecord
+  belongs_to :question
+end
