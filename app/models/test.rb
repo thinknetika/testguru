@@ -5,6 +5,10 @@ class Test < ApplicationRecord
 
   has_many :questions, dependent: :destroy
 
+  has_many :test_passages, dependent: :destroy
+
+  has_many :users, through: :test_passages
+
   enum level: {
     easy: 0,
     medium: 1,
