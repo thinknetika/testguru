@@ -1,6 +1,8 @@
 class Test < ApplicationRecord
   belongs_to :category
 
+  has_many :questions, dependent: :destroy
+
   enum level: {
     easy: 0,
     medium: 1,
