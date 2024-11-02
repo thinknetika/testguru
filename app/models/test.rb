@@ -1,4 +1,6 @@
 class Test < ApplicationRecord
+  belongs_to :category
+
   enum level: {
     easy: 0,
     medium: 1,
