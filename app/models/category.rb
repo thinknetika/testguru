@@ -1,5 +1,3 @@
 class Category < ApplicationRecord
-  has_many :tests
-
-  validates :title, presence: true # проверка на предмет пустой строки, null валидируется на уровне БД
+  has_many :tests, dependent: :destroy
 end
