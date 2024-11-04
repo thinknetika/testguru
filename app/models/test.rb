@@ -15,6 +15,8 @@ class Test < ApplicationRecord
 
   scope :hard, -> { where level: 5..Float::INFINITY }
 
+  scope :by_level, -> (level) { where level: level }
+
   scope :sorted_test_by_category, ->(category_title) {
     joins(:category).
       where(categories: { title: category_title }).
