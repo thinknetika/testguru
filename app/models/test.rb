@@ -15,11 +15,14 @@ class Test < ApplicationRecord
 
   scope :hard, -> { where level: 5..Float::INFINITY }
 
-  scope :by_level, -> (level) { where level: level }
+  scope :by_level, ->(level) { where level: level }
 
-  scope :sorted_test_by_category, ->(category_title) {
+  scope :by_category, ->(category_title) {
     joins(:category).
-      where(categories: { title: category_title }).
-      order(title: :desc)
+      where(categories: { title: category_title })
+  }
+
+  scope :ordered_by_category_title, ->(category_title) {
+    by_category(category_title).order(title: :desc)
   }
 end
