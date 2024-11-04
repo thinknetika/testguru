@@ -9,11 +9,12 @@ class Test < ApplicationRecord
 
   has_many :users, through: :test_passages
 
-  enum level: {
-    easy: 0,
-    medium: 1,
-    hard: 2
-  }
+  scope :easy, -> { where level: 0..1 }
+
+  scope :medium, -> { where level: 2..4 }
+
+  scope :hard, -> { where level: 5..Float::INFINITY }
+
 
   def self.sorted_test_by_category(category_title)
     joins(:category).
