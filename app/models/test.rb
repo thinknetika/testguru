@@ -13,6 +13,7 @@ class Test < ApplicationRecord
               only_integer: true,
               greater_than: 0
             }
+  validates :title, uniqueness: { scope: :level }
 
   scope :easy, -> { where level: 0..1 }
   scope :medium, -> { where level: 2..4 }
