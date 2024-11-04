@@ -17,12 +17,13 @@ class Test < ApplicationRecord
 
   scope :by_level, ->(level) { where level: level }
 
-  scope :by_category, ->(category_title) {
+  scope :order_by_category_title, ->(category_title) {
     joins(:category).
-      where(categories: { title: category_title })
+      where(categories: { title: category_title }).
+      order(title: :desc)
   }
 
-  scope :ordered_by_category_title, ->(category_title) {
-    by_category(category_title).order(title: :desc)
-  }
+  def self.category_title(category_title)
+    order_by_category_title(category_title).pluck(:title)
+  end
 end
