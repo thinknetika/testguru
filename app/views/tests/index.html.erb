@@ -9,6 +9,7 @@
     </tr>
     <%= render @tests %>
   </table>
+  <%= link_to 'New', new_test_path %>
 <% else %>
   <h1>No tests</h1>
 <% end %>
