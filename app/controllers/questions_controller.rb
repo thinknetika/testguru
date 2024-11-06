@@ -4,9 +4,7 @@ class QuestionsController < ApplicationController
 
   rescue_from ActiveRecord::RecordNotFound, with: :resque_with_question_not_found
 
-  def show
-    render plain: @question.body
-  end
+  def show; end
 
   def new
     @question = Question.new
@@ -35,7 +33,7 @@ class QuestionsController < ApplicationController
   def destroy
     @question.destroy
 
-    render plain: "Question delete success"
+    redirect_to test_path(@question.test)
   end
 
   private
@@ -49,7 +47,6 @@ class QuestionsController < ApplicationController
   end
 
   def set_question
-    debugger
     @question = Question.find(params[:id])
   end
 
