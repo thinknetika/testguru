@@ -14,9 +14,9 @@ class QuestionsController < ApplicationController
     @question = @test.questions.new(question_params)
 
     if @question.save
-      redirect_to test_path(@question.test)
+      redirect_to test_path(@question.test), status: :see_other
     else
-      render :new
+      render :new, status: 422
     end
   end
 
@@ -26,7 +26,7 @@ class QuestionsController < ApplicationController
     if @question.update(question_params)
       redirect_to test_path(@question.test)
     else
-      render :edit
+      render :edit, status: 422
     end
   end
 

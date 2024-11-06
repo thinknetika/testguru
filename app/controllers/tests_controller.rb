@@ -14,9 +14,9 @@ class TestsController < ApplicationController
     @test = Test.new(test_params)
 
     if @test.save
-      redirect_to test_path(@test)
+      redirect_to test_path(@test), status: :see_other
     else
-      render :new
+      render :new, status: :unprocessable_content
     end
   end
 
@@ -24,9 +24,9 @@ class TestsController < ApplicationController
 
   def update
     if @test.update(test_params)
-      redirect_to test_path(@test)
+      redirect_to test_path(@test), status: :see_other
     else
-      render :edit
+      render :edit, status: :unprocessable_content
     end
   end
 
