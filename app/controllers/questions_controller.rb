@@ -1,35 +1,39 @@
 class QuestionsController < ApplicationController
-  before_action :set_test, only: [ :new, :index, :create ]
-  before_action :set_question, only: [ :show, :destroy ]
+  before_action :set_question, only: [ :show, :edit, :update, :destroy ]
+  before_action :set_test, only: [ :new, :create ]
 
   rescue_from ActiveRecord::RecordNotFound, with: :resque_with_question_not_found
 
-  def index
-    @questions = @test.questions.map(&:body)
+  def show; end
 
-    render plain: @questions.join("\n")
+  def new
+    @question = @test.questions.new
   end
-
-  def show
-    render plain: @question.body
-  end
-
-  def new; end
 
   def create
-    @question = @test.questions.build(question_params)
+    @question = @test.questions.new(question_params)
 
     if @question.save
-      redirect_to test_questions_path(@test)
+      redirect_to question_path(@question), status: :see_other
     else
-      render plain: "Error question create"
+      render :new, status: 422
+    end
+  end
+
+  def edit; end
+
+  def update
+    if @question.update(question_params)
+      redirect_to test_path(@question.test)
+    else
+      render :edit, status: 422
     end
   end
 
   def destroy
     @question.destroy
 
-    render plain: "Question delete success"
+    redirect_to test_path(@question.test)
   end
 
   private

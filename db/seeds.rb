@@ -14,12 +14,12 @@ users_collection = [
 users = User.create!(users_collection)
 
 tests_collection = [
-  { title: 'Тест IQ 0', level: :easy, category: categories[0], author: users[0] },
-  { title: 'Тест IQ 1', level: :medium, category: categories[0], author: users[1] },
+  { title: 'Тест IQ 0', level: 1, category: categories[0], author: users[0] },
+  { title: 'Тест IQ 1', level: 2, category: categories[0], author: users[1] },
   { title: 'Тест Психология 1', level: 1, category: categories[1], author: users[0] },
-  { title: 'Тест Психология 2', level: 2, category: categories[1], author: users[0] },
-  { title: 'Тест Прозводительность 0', level: 0, category: categories[2], author: users[1] },
-  { title: 'Тест Прозводительность 2', level: 2, category: categories[2], author: users[1] }
+  { title: 'Тест Психология 2', level: 4, category: categories[1], author: users[0] },
+  { title: 'Тест Прозводительность 0', level: 1, category: categories[2], author: users[1] },
+  { title: 'Тест Прозводительность 2', level: 3, category: categories[2], author: users[1] }
 ]
 
 tests = Test.create!(tests_collection)
