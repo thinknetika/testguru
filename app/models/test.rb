@@ -11,7 +11,7 @@ class Test < ApplicationRecord
             presence: true,
             numericality: {
               only_integer: true,
-              greater_than: 0
+              greater_than_or_equal_to: 0
             }
   validates :title, uniqueness: { scope: :level }
 
