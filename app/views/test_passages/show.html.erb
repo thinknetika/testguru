@@ -4,6 +4,9 @@
   <%= @test_passage.current_question.body %>
 </b>
 
+<p>All question <%= @test_passage.test.questions.count %></p>
+<p>Question № <%= @test_passage.current_question.id %></p>
+
 <%= form_with url: test_passage_path(@test_passage), method: :put do |form| %>
   <%= form.collection_check_boxes :answer_ids, @test_passage.current_question.answers, :id, :body, include_hidden: false, id: :answer_body do |b| %>
     <p>
