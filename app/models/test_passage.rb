@@ -24,8 +24,7 @@ class TestPassage < ApplicationRecord
   end
 
   def test_rate
-    test_correct_answers_count = Answer.joins(:question).where(questions: { test_id: self.test.id }, correct: true).count
-    self.correct_questions.to_f / test_correct_answers_count * 100
+    self.correct_questions.to_f / self.test.questions.count * 100
   end
 
   private
