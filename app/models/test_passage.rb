@@ -1,4 +1,6 @@
 class TestPassage < ApplicationRecord
+  SUCCESS_PERCENT = 85
+
   belongs_to :user
   belongs_to :test
   belongs_to :current_question, class_name: "Question", optional: true
@@ -15,6 +17,15 @@ class TestPassage < ApplicationRecord
     end
 
     save!
+  end
+
+  def success?
+    test_rate > SUCCESS_PERCENT
+  end
+
+  def test_rate
+    test_correct_answers_count = Answer.joins(:question).where(questions: { test_id: self.test.id }, correct: true).count
+    self.correct_questions.to_f / test_correct_answers_count * 100
   end
 
   private
