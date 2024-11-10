@@ -11,9 +11,12 @@ module ApplicationHelper
     link_to "Thinknetika", "https://thinknetica.com//", target: "_blank"
   end
 
-  def flash_messages(type)
-    unless flash[type].blank?
-      content_tag :p, flash[type], class: "flash #{type}"
+  def flash_messages
+    unless flash.empty?
+      flash.map do |type, message|
+        next if message.blank?
+        content_tag :p, message, class: "flash #{type}"
+      end.join.html_safe
     end
   end
 end

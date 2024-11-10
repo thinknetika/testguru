@@ -19,13 +19,14 @@
 
 <body>
 <% if logged_in? %>
-  <p class="nav user">Welcome, <b><%= current_user.email %></b> Guru</p>
-  <p><%= link_to 'Logout',
-                 logout_path,
-                  data: { turbo_method: :delete,
-                          turbo_confirm: 'Are you sure' } %></p>
+  <div class="nav user">
+    <p>Welcome, <b><%= current_user.email %></b> Guru</p>
+    <p><%= link_to 'Logout',
+                   logout_path,
+                   data: { turbo_method: :delete,
+                           turbo_confirm: 'Are you sure' } %></p>
+  </div>
 <% end %>
-
 <%= yield %>
 
 <%= render 'shared/footer' %>

@@ -12,13 +12,14 @@ class SessionsController < ApplicationController
       redirect_to root_path, status: :see_other
     else
       flash.now[:alert] = "Are you a Guru? Verify your email or password"
+
       render :new, status: :unprocessable_content
     end
   end
 
   def destroy
     reset_session
-
+    flash[:notice] = "Logout success"
     redirect_to login_path, status: :see_other
   end
 end
