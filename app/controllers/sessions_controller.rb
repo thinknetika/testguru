@@ -1,4 +1,6 @@
 class SessionsController < ApplicationController
+  skip_before_action :authenticate_user!
+
   def new; end
 
   def create
@@ -7,9 +9,10 @@ class SessionsController < ApplicationController
     if user&.authenticate(params[:password])
       session[:user_id] = user.id
 
-      redirect_to root_path
+      redirect_to root_path, status: :see_other
     else
-      render :new
+      flash.now[:alert] = "Are you a Guru? Verify your email or password"
+      render :new, status: :unprocessable_content
     end
   end
 end

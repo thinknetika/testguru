@@ -1,5 +1,4 @@
 module TestPassagesHelper
-
   def test_result_message(test_passage)
     if test_passage.success?
       content_tag(:h1, "Your test success with result: #{@test_passage.test_rate}", class: "test-title success")
