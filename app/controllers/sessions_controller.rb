@@ -15,4 +15,10 @@ class SessionsController < ApplicationController
       render :new, status: :unprocessable_content
     end
   end
+
+  def destroy
+    reset_session
+
+    redirect_to login_path, status: :see_other
+  end
 end
