@@ -10,4 +10,10 @@ module ApplicationHelper
   def school_path
     link_to "Thinknetika", "https://thinknetica.com//", target: "_blank"
   end
+
+  def flash_messages(type)
+    unless flash[type].blank?
+      content_tag :p, flash[type], class: "flash #{type}"
+    end
+  end
 end
