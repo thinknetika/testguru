@@ -1,0 +1,7 @@
+.test-title.success {
+    color: green;
+}
+
+.test-title.fail {
+    color: red;
+}

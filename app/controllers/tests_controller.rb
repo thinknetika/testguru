@@ -1,5 +1,13 @@
 class TestsController < ApplicationController
-  before_action :set_test, only: [ :show, :edit, :update, :destroy ]
+  before_action :set_test, only: [ :show, :edit, :update, :destroy, :start ]
+
+  def start
+    @user = User.first
+
+    @user.tests.push(@test)
+    redirect_to @user.test_passage(@test)
+  end
+
   def index
     @tests = Test.all
   end
