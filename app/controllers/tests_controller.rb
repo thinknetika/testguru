@@ -4,8 +4,9 @@ class TestsController < ApplicationController
   def start
     @user = User.first
 
-    @user.tests.push(@test)
-    redirect_to @user.test_passage(@test)
+    current_user.tests.push(@test)
+
+    redirect_to current_user.test_passage(@test)
   end
 
   def index

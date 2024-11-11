@@ -7,8 +7,8 @@ categories_collection = [
 categories = Category.create!(categories_collection)
 
 users_collection = [
-  { nickname: 'user_1', email: 'user_1@mail.ru' },
-  { nickname: 'user_2', email: 'user_2@mail.ru' }
+  { nickname: 'user1', email: 'user1@mail.ru', password: '123456' },
+  { nickname: 'user2', email: 'user2@mail.ru', password: '123456' }
 ]
 
 users = User.create!(users_collection)
