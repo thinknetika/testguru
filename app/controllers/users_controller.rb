@@ -10,7 +10,7 @@ class UsersController < ApplicationController
 
     if @user.save
       session[:user_id] = @user.id
-      # redirect_to @user, status: :see_other
+
       redirect_to root_path, status: :see_other
     else
       render :new, status: :unprocessable_content
