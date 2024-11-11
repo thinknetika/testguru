@@ -6,7 +6,7 @@
             question_path(@question),
             data: { turbo_method: :delete,
                     turbo_confirm: 'Are you sure' } %>
-<%= link_to 'Back', test_path(@question.test) %>
+<%= link_to 'Back', admin_test_path(@question.test) %>
 
 <h2>Answers</h2>
 
