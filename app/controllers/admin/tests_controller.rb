@@ -1,5 +1,5 @@
 class Admin::TestsController < Admin::BaseController
-  before_action :set_test, only: [ :show, :edit, :update, :destroy, :start ]
+  before_action :set_test, only: [:show, :edit, :update, :destroy, :start]
 
   def start
     @user = User.first
@@ -16,7 +16,7 @@ class Admin::TestsController < Admin::BaseController
   def show; end
 
   def new
-    @test = current_user.create_tests.new(test_params)
+    @test = current_user.create_tests.new
   end
 
   def create
@@ -46,6 +46,7 @@ class Admin::TestsController < Admin::BaseController
   end
 
   private
+
   def test_params
     params.require(:test).permit(:title, :level, :category_id, :author_id)
   end
