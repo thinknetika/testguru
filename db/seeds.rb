@@ -7,12 +7,12 @@ categories_collection = [
 categories = Category.create!(categories_collection)
 
 users_collection = [
-  { nickname: 'user1', email: 'user1@mail.ru', password: '123456' },
-  { nickname: 'user2', email: 'user2@mail.ru', password: '123456' }
+  { email: 'user1@mail.ru', password: '123456' },
+  { email: 'user2@mail.ru', password: '123456' }
 ]
 
 users = User.create!(users_collection)
-admin = User.create!(nickname: 'user3', first_name: 'user', last_name: '3', email: 'user3@mail.ru', type: 'Admin', password: '123456')
+admin = User.create!(first_name: 'user', last_name: '3', email: 'user3@mail.ru', type: 'Admin', password: '123456')
 
 tests_collection = [
   { title: 'Тест IQ 0', level: 1, category: categories[0], author: admin },
