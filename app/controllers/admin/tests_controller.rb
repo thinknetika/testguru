@@ -1,4 +1,4 @@
-class Admin::TestController < Admin::BaseController
+class Admin::TestsController < Admin::BaseController
   before_action :set_test, only: [ :show, :edit, :update, :destroy, :start ]
 
   def start
