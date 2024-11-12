@@ -18,4 +18,8 @@ class User < ApplicationRecord
   def test_passage(test)
     test_passages.order(id: :desc).find_by(test_id: test.id)
   end
+
+  def names_present?
+    !first_name.blank? && !last_name.blank?
+  end
 end
