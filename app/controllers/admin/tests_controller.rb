@@ -16,14 +16,14 @@ class Admin::TestsController < Admin::BaseController
   def show; end
 
   def new
-    @test = Test.new
+    @test = current_user.create_tests.new(test_params)
   end
 
   def create
-    @test = Test.new(test_params)
+    @test = current_user.create_tests.new(test_params)
 
     if @test.save
-      redirect_to test_path(@test), status: :see_other
+      redirect_to admin_test_path(@test), status: :see_other
     else
       render :new, status: :unprocessable_content
     end
@@ -33,7 +33,7 @@ class Admin::TestsController < Admin::BaseController
 
   def update
     if @test.update(test_params)
-      redirect_to test_path(@test), status: :see_other
+      redirect_to admin_test_path(@test), status: :see_other
     else
       render :edit, status: :unprocessable_content
     end
@@ -42,7 +42,7 @@ class Admin::TestsController < Admin::BaseController
   def destroy
     @test.destroy
 
-    redirect_to tests_path
+    redirect_to admin_tests_path, status: :see_other
   end
 
   private

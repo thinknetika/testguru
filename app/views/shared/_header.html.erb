@@ -6,8 +6,7 @@
       Welcome, <b><%= current_user.email %></b> Guru
       <%= link_to 'Logout',
                   destroy_user_session_path,
-                  data: { turbo_method: :delete,
-                          turbo_confirm: 'Are you sure' } %>
+                  data: { turbo_method: :delete } %>
     </p>
   <% else %>
     <p>
