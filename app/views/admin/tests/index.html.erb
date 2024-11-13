@@ -1,14 +1,15 @@
 <h1>All tests</h1>
 
 <% if @tests.present? %>
+  <%= link_to 'New', new_admin_test_path %>
   <table>
     <tr>
       <th>Question</th>
       <th>Level</th>
       <th>Questions</th>
-      <th>Actions</th>
+      <th colspan="4">Actions</th>
     </tr>
-    <%= render @tests %>
+    <%= render partial: 'admin/tests/test', collection: @tests %>
   </table>
 <% else %>
   <h1>No tests</h1>

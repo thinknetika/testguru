@@ -1,25 +1,6 @@
-class SessionsController < ApplicationController
-  skip_before_action :authenticate_user!
-
-  def new; end
-
+class SessionsController  < Devise::SessionsController
   def create
-    user = User.find_by(email: params[:email])
-
-    if user&.authenticate(params[:password])
-      session[:user_id] = user.id
-
-      redirect_to cookies.delete(:current_url) || root_path, status: :see_other
-    else
-      flash.now[:alert] = "Are you a Guru? Verify your email or password"
-
-      render :new, status: :unprocessable_content
-    end
-  end
-
-  def destroy
-    reset_session
-    flash[:notice] = "Logout success"
-    redirect_to login_path, status: :see_other
+    super
+    flash[:notice] = "Welcome, #{current_user.first_name} #{current_user.last_name}!" if current_user.names_present?
   end
 end

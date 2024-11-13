@@ -1,6 +1,6 @@
-class AnswersController < ApplicationController
+class Admin::AnswersController < Admin::BaseController
   before_action :set_answer, only: %i[ show edit update destroy ]
-  before_action :set_question, only: %i[ create new ]
+  before_action :set_question, only: %i[ new create ]
 
   def show; end
 
@@ -14,7 +14,7 @@ class AnswersController < ApplicationController
     @answer = @question.answers.new(answer_params)
 
     if @answer.save
-      redirect_to @answer, status: :see_other
+      redirect_to admin_question_path(@answer.question), status: :see_other
     else
       render :new, status: :unprocessable_content
     end
@@ -22,7 +22,7 @@ class AnswersController < ApplicationController
 
   def update
     if @answer.update(answer_params)
-      redirect_to @answer, status: :see_other
+      redirect_to admin_question_path(@answer.question), status: :see_other
     else
       render :edit, status: :unprocessable_content
     end
@@ -31,7 +31,7 @@ class AnswersController < ApplicationController
   def destroy
     @answer.destroy!
 
-    redirect_to question_answers_path(@answer.question), status: :see_other
+    redirect_to admin_question_path(@answer.question), status: :see_other
   end
 
   private
