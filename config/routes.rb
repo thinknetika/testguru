@@ -5,10 +5,6 @@ Rails.application.routes.draw do
              controllers: { sessions: "sessions" }
 
   resources :tests, only: :index do
-    resources :questions, only: :show, shallow: true do
-      resources :answers, only: :show, shallow: true
-    end
-
     post :start, on: :member
   end
 
