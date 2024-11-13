@@ -1,13 +1,5 @@
 class Admin::TestsController < Admin::BaseController
-  before_action :set_test, only: [:show, :edit, :update, :destroy, :start]
-
-  def start
-    @user = User.first
-
-    current_user.tests.push(@test)
-
-    redirect_to current_user.test_passage(@test)
-  end
+  before_action :set_test, only: %i[ show edit update destroy ]
 
   def index
     @tests = Test.all
@@ -48,7 +40,7 @@ class Admin::TestsController < Admin::BaseController
   private
 
   def test_params
-    params.require(:test).permit(:title, :level, :category_id, :author_id)
+    params.require(:test).permit(:title, :level, :category_id)
   end
 
   def set_test
