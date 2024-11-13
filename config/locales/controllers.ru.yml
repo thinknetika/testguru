@@ -1,0 +1,5 @@
+ru:
+  admin:
+    tests:
+      create:
+        success: "Тест был успешно создан."

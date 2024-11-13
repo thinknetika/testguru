@@ -1,0 +1,5 @@
+en:
+  admin:
+    tests:
+      create:
+        success: "Test was successfully created."

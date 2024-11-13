@@ -15,7 +15,7 @@ class Admin::TestsController < Admin::BaseController
     @test = current_user.create_tests.new(test_params)
 
     if @test.save
-      redirect_to admin_test_path(@test), status: :see_other
+      redirect_to admin_test_path(@test), notice: t(".success"), status: :see_other
     else
       render :new, status: :unprocessable_content
     end

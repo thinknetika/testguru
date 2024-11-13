@@ -1,0 +1,27 @@
+en:
+  tests:
+    index:
+      header: "Tricky Tests"
+  test_passages:
+    result:
+      header: "Tes %{title} was successfully completed!"
+
+  admin:
+    tests:
+      index:
+        header: "Tricky Tests"
+  helpers:
+    submit:
+      test:
+        create: "Create Test"
+        update: "Update Test"
+    label:
+      test:
+        title: "Title"
+        level: "Level"
+        category_id: "Category"
+  shared:
+    errors:
+      header:
+        one: "%{count} error detected"
+        other: "%{count} errors detected"
