@@ -15,7 +15,7 @@ class Admin::TestsController < Admin::BaseController
     @test = current_user.create_tests.new(test_params)
 
     if @test.save
-      redirect_to admin_test_path(@test), notice: t(".success"), status: :see_other
+      redirect_to admin_test_path(@test), notice: t("admin.tests.create.success"), status: :see_other
     else
       render :new, status: :unprocessable_content
     end
@@ -25,7 +25,7 @@ class Admin::TestsController < Admin::BaseController
 
   def update
     if @test.update(test_params)
-      redirect_to admin_test_path(@test), status: :see_other
+      redirect_to admin_test_path(@test), notice: t("admin.tests.update.success"), status: :see_other
     else
       render :edit, status: :unprocessable_content
     end
@@ -34,7 +34,7 @@ class Admin::TestsController < Admin::BaseController
   def destroy
     @test.destroy
 
-    redirect_to admin_tests_path, status: :see_other
+    redirect_to admin_tests_path, notice: t("admin.tests.delete.success"), status: :see_other
   end
 
   private

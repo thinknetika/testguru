@@ -49,10 +49,34 @@ en:
       signed_in: "Signed in successfully."
       signed_out: "Signed out successfully."
       already_signed_out: "Signed out successfully."
+      welcome: "Welcome, %{first_name} %{last_name}!"
     unlocks:
       send_instructions: "You will receive an email with instructions for how to unlock your account in a few minutes."
       send_paranoid_instructions: "If your account exists, you will receive an email with instructions for how to unlock it in a few minutes."
       unlocked: "Your account has been unlocked successfully. Please sign in to continue."
+    form:
+      registrations:
+        title: "Sign up"
+        submit: "Sign up"
+        email: "Email"
+        password: "Password"
+        password_confirmation: "Password confirmation"
+        first_name: "First name"
+        last_name: "Last name"
+      sessions:
+        title: "Log in"
+        submit: "Log in"
+        email: "Email"
+        password: "Password"
+        remember: "Remember me"
+    shared:
+      links:
+        login: "Log in"
+        signup: "Sign up"
+        forgot_password: "Forgot your password?"
+        confirmation_instruction: "Didn't receive confirmation instructions?"
+        unlock_instruction: "Didn't receive unlock instructions?"
+        omni_auth: "Sign in with: %{provider}"
   errors:
     messages:
       already_confirmed: "was already confirmed, please try signing in"

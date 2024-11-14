@@ -1,16 +1,21 @@
+<h1><%= yield :title %></h1>
+
 <%= form_with model: [:admin, @question, @answer], local: true do |form| %>
   <%= render 'shared/errors', resource: @answer %>
 
   <p>
-    <%= form.label :body %>
+    <%= form.label :body, t("admin.answers.form.body") %>
 
     <%= form.text_area :body, id: :answer_body, rows: 7, cols: 60 %>
   </p>
 
   <p>
-    <%= form.label :correct %>
+    <%= form.label :correct, t("admin.answers.form.correct") %>
     <%= form.check_box :correct, id: :answer_correct %>
   </p>
 
-  <p><%= form.submit %></p>
+  <p><%= form.submit t("admin.answers.form.submit") %></p>
 <% end %>
+
+<%= link_to t("admin.answers.form.back"), admin_question_path(@answer.question) %>
+

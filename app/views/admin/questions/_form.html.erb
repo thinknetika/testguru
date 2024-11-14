@@ -1,12 +1,14 @@
+<h1><%= yield :title %></h1>
+
 <%= form_with model: [:admin, @test, @question] do |form| %>
   <%= render 'shared/errors', resource: @question %>
 
   <p>
-    <%= form.label :body %>
+    <%= form.label :body, t("admin.questions.form.body") %>
     <%= form.text_field :body %>
   </p>
 
-  <p><%= form.submit %></p>
+  <p><%= form.submit t("admin.questions.form.submit") %></p>
 <% end %>
 
-<%= link_to 'Back', admin_test_path(@test) %>
+<%= link_to t("admin.questions.form.back"), admin_test_path(@question.test) %>

@@ -1,0 +1,113 @@
+en:
+  admin:
+    answers:
+      answer:
+        show: "Show"
+        edit: "Edit"
+        delete: "Delete"
+        confirm: "Are you sure?"
+      new:
+        title: "New answer"
+      edit:
+        title: 'Edit answer'
+      show:
+        question: "Question"
+        answer: "Answer"
+        correct: "Correct"
+        back: "Back"
+      form:
+        back: "Back"
+        body: "Body"
+        correct: "Correct"
+        submit: "Save"
+    questions:
+      question:
+        show: "Show"
+        edit: "Edit"
+        delete: "Delete"
+        confirm: "Are you sure?"
+      new:
+        title: "New question"
+      edit:
+        title: "Edit question"
+      form:
+        back: "Back"
+        body: "Body"
+        submit: "Save"
+      show:
+        title: "Body"
+        edit: "Edit"
+        delete: "Delete"
+        answers: "Answers"
+        answer: "New answer"
+        back: "Back"
+        confirm: "Are you sure?"
+    tests:
+      index:
+        new: "New test"
+        title: "Tests"
+        question: "Question"
+        level: "Level"
+        questions: "Questions"
+        actions: "Actions"
+        no_tests: "No tests"
+      test:
+        show: "Show"
+        edit: "Edit"
+        delete: "Delete"
+        confirm: "Are you sure?"
+      new:
+        title: "New test"
+      edit:
+        title: "Edit test"
+      form:
+        back: "Back"
+        title: "Title"
+        level: "Level"
+        category: "Category"
+        submit: "Save"
+      show:
+        title: "Test"
+        edit: "Edit"
+        delete: "Delete"
+        question: "New question"
+        back: "Back"
+        confirm: "Are you sure?"
+    nav:
+      panel: "%{title} Admin Panel"
+      logout: "Logout"
+      welcome: "Welcome,"
+
+  shared:
+    errors:
+      header:
+        one: "%{count} error detected"
+        other: "%{count} errors detected"
+    footer:
+      author: "Leushkin Ilya"
+    header:
+      logout: "Logout"
+      login: "Login"
+      signup: "Sign up"
+      welcome: "Welcome,"
+  test_passages:
+    show:
+      title: "Passing the %{title} test"
+      questions: "All question: %{count}"
+      id: "Question №: %{id}"
+      next: 'Next'
+    result:
+      header: "Test %{title} complete!"
+      tests: "All tests"
+      success: "Your test success with result: %{rate)"
+      fail: "You failed test with result: %{rate)"
+  tests:
+    test:
+      start: "Start"
+    index:
+      header: "Tests"
+      question: "Question"
+      level: "Level"
+      questions: "Questions"
+      actions: "Actions"
+      no_tests: "No tests"

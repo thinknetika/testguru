@@ -1,5 +1,5 @@
-Hooray!
+<%= t(".great") %>
 
 ======
 
-Congratulations! You completed the "<%= @test.title %>" test. Choose your next test: <%= tests_url %>
+<%= t(".subject", title: @test.title )%> <%= link_to t(".more"), tests_url %>

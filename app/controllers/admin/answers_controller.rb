@@ -14,7 +14,7 @@ class Admin::AnswersController < Admin::BaseController
     @answer = @question.answers.new(answer_params)
 
     if @answer.save
-      redirect_to admin_question_path(@answer.question), status: :see_other
+      redirect_to admin_question_path(@answer.question), notice: t("admin.answers.create.success"), status: :see_other
     else
       render :new, status: :unprocessable_content
     end
@@ -22,7 +22,7 @@ class Admin::AnswersController < Admin::BaseController
 
   def update
     if @answer.update(answer_params)
-      redirect_to admin_question_path(@answer.question), status: :see_other
+      redirect_to admin_question_path(@answer.question), notice: t("admin.answers.update.success"), status: :see_other
     else
       render :edit, status: :unprocessable_content
     end
@@ -31,7 +31,7 @@ class Admin::AnswersController < Admin::BaseController
   def destroy
     @answer.destroy!
 
-    redirect_to admin_question_path(@answer.question), status: :see_other
+    redirect_to admin_question_path(@answer.question), notice: t("admin.answers.delete.success"), status: :see_other
   end
 
   private

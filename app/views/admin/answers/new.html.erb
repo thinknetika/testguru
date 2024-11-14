@@ -1,11 +1,3 @@
-<% content_for :title, "New answer" %>
-
-<h1>New answer</h1>
+<% content_for :title, t("admin.answers.new.title") %>
 
 <%= render "admin/answers/form", answer: @answer %>
-
-<br>
-
-<div>
-  <%= link_to "Back to answers", admin_question_path(@answer.question) %>
-</div>
