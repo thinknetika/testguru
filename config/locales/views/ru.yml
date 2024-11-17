@@ -1,0 +1,115 @@
+ru:
+  admin:
+    answers:
+      answer:
+        show: "Посмотреть"
+        edit: "Редактировать"
+        delete: "Удалить"
+        confirm: "Вы уверены?"
+      new:
+        title: "Новый ответ"
+      edit:
+        title: "Редактировать ответ"
+      show:
+        question: "Вопрос"
+        answer: "Ответ"
+        correct: "Правильный"
+        back: "Назад"
+      form:
+        back: "Назад"
+        body: "Ответ"
+        correct: "Правильный"
+        submit: "Сохранить"
+    questions:
+      question:
+        show: "Посмотреть"
+        edit: "Редактировать"
+        delete: "Удалить"
+        confirm: "Вы уверены?"
+      new:
+        title: "Новый вопрос"
+      edit:
+        title: "Редактировать вопрос"
+      form:
+        back: "Назад"
+        body: "Вопрос"
+        submit: "Сохранить"
+      show:
+        title: "Вопрос"
+        edit: "Редактировать"
+        delete: "Удалить"
+        answers: "Ответы"
+        answer: "Новый ответ"
+        back: "Назад"
+        confirm: "Вы уверены?"
+    tests:
+      index:
+        new: "Новый тест"
+        title: "Тесты"
+        question: "Вопрос"
+        level: "Уровень"
+        questions: "Вопросы"
+        actions: "Действия"
+        no_tests: "Нет тестов"
+      test:
+        show: "Посмотреть"
+        edit: "Редактировать"
+        delete: "Удалить"
+        confirm: "Вы уверены?"
+      new:
+        title: "Новый тест"
+      edit:
+        title: "Редактировать тест"
+      form:
+        back: "Назад"
+        title: "Название"
+        level: "Уровень"
+        category: "Категория"
+        submit: "Сохранить"
+      show:
+        title: "Тест"
+        edit: "Редактировать"
+        delete: "Удалить"
+        question: "Новый вопрос"
+        back: "Назад"
+        confirm: "Вы уверены?"
+    nav:
+      panel: "%{title} Административная Панель"
+      logout: "Выход"
+      welcome: "Добро пожаловать,"
+  shared:
+    errors:
+      header:
+        few: "Обнаружено %{count} ошибки"
+        many: "Обнаружено %{count} ошибок"
+        one: "Обнаружено %{count} ошибка"
+        other: "Обнаружено %{count} ошибки"
+    footer:
+      author: "Илья Леушкин"
+    header:
+      logout: "Выход"
+      login: "Вход"
+      signup: "Регистрация"
+      welcome: "Добро пожаловать,"
+  test_passages:
+    show:
+      title: "Прохождение %{title} тест"
+      questions: "Всего вопросов: %{count}"
+      id: "Вопрос №: %{id}"
+      next: "Следующий"
+    result:
+      header: "Тест %{title} завершен!"
+      tests: "Все тесты"
+      success: "Вы успешно завершили тест с результатом: %{rate}"
+      fail: "Вы провалили тест с результатом: %{rate}"
+  tests:
+    test:
+      start: "Начать"
+    index:
+      header: "Тесты"
+      question: "Вопрос"
+      level: "Уровень"
+      questions: "Вопросы"
+      actions: "Действия"
+      no_tests: "Нет тестов"
+

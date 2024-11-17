@@ -1,5 +1,5 @@
-<h1>The <%= @test_passage.test.title %> Test was Completed!</h1>
+<%= t('.header', title: @test_passage.test.title) %>
 
 <%= test_result_message(@test_passage) %>
 
-<%= link_to 'All tests', tests_path %>
+<%= link_to t(".tests"), tests_path %>

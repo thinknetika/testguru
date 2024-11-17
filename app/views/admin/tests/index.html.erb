@@ -1,16 +1,16 @@
-<h1>All tests</h1>
+<h1><%= t("admin.tests.index.title") %></h1>
 
 <% if @tests.present? %>
-  <%= link_to 'New', new_admin_test_path %>
+  <%= link_to t("admin.tests.index.new"), new_admin_test_path %>
   <table>
     <tr>
-      <th>Question</th>
-      <th>Level</th>
-      <th>Questions</th>
-      <th colspan="4">Actions</th>
+      <th><%= t("admin.tests.index.question") %></th>
+      <th><%= t("admin.tests.index.level") %></th>
+      <th><%= t("admin.tests.index.questions") %></th>
+      <th colspan="4"><%= t("admin.tests.index.actions") %></th>
     </tr>
     <%= render partial: 'admin/tests/test', collection: @tests %>
   </table>
 <% else %>
-  <h1>No tests</h1>
+  <h1><%= t("admin.tests.index.no_tests") %></h1>
 <% end %>

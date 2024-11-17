@@ -1,0 +1,25 @@
+en:
+  admin:
+    tests:
+      create:
+        success: "Test create"
+      update:
+        success: "Test update"
+      delete:
+        success: "Test delete"
+    questions:
+      create:
+        success: "Question create"
+      update:
+        success: "Question update"
+      delete:
+        success: "Question delete"
+    answers:
+      create:
+        success: "Answer create"
+      update:
+        success: "Answer update"
+      delete:
+        success: "Answer delete"
+    base:
+      not_authorized: "You are not authorized to view this page"

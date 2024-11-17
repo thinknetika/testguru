@@ -1,0 +1,25 @@
+ru:
+  admin:
+    tests:
+      create:
+        success: "Тест создан"
+      update:
+        success: "Тест обновлён"
+      delete:
+        success: "Тест удалён"
+    questions:
+      create:
+        success: "Вопрос создан"
+      update:
+        success: "Вопрос обновлён"
+      delete:
+        success: "Вопрос удалён"
+    answers:
+      create:
+        success: "Ответ создан"
+      update:
+        success: "Ответ обновлён"
+      delete:
+        success: "Ответ удалён"
+    base:
+      not_authorized: "Вы не авторизованы для просмотра этой страницы"

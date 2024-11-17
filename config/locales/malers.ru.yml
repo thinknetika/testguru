@@ -1,0 +1,6 @@
+ru:
+  tests_mailer:
+    completed_test:
+      subject: "Поздравления! Вы завершили %{title} тест. Почему бы не пройти "
+      more: "ещё"
+      great: "Отлично"
