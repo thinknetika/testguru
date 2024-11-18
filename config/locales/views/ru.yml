@@ -77,6 +77,9 @@ ru:
       panel: "%{title} Административная Панель"
       logout: "Выход"
       welcome: "Добро пожаловать,"
+      admin_panel: ""
+      login: ""
+      signup: ""
   shared:
     errors:
       header:
@@ -91,6 +94,7 @@ ru:
       login: "Вход"
       signup: "Регистрация"
       welcome: "Добро пожаловать,"
+      admin_panel: "Панель адмнистратора"
   test_passages:
     show:
       title: "Прохождение %{title} тест"

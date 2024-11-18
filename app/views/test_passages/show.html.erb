@@ -1,21 +1,25 @@
-<h1><%= t(".title", title: @test_passage.test.title ) %></h1>
+<%= t(".title", title: @test_passage.test.title) %>
 
-<b>
-  <%= @test_passage.current_question.body %>
-</b>
+<div class="card mb-3">
+  <div class="card-body">
+    <h5 class="card-title"><b><%= @test_passage.current_question.body %></b></h5>
 
-<p><%= t(".questions", count: @test_passage.test.questions.count) %></p>
-<p><%= t(".id", id: @test_passage.current_question.id )%></p>
 
-<%= form_with url: test_passage_path(@test_passage), method: :put do |form| %>
-  <%= form.collection_check_boxes :answer_ids, @test_passage.current_question.answers, :id, :body, include_hidden: false, id: :answer_body do |b| %>
-    <p>
-      <label for="answer_body_<%= b.object.id %>">
-        <%= b.check_box %>
-        <%= b.label %>
-      </label>
-    </p>
-  <% end %>
+    <p class="card-text"><%= t(".questions", count: @test_passage.test.questions.count) %></p>
+    <p class="card-text"><%= t(".id", id: @test_passage.current_question.id) %></p>
 
-  <p><%= form.submit t(".next") %></p>
-<% end %>
+    <%= form_with url: test_passage_path(@test_passage), method: :put do |form| %>
+      <div class="form-group">
+        <%= form.collection_check_boxes :answer_ids, @test_passage.current_question.answers, :id, :body, include_hidden: false, id: :answer_body do |b| %>
+          <div class="form-check">
+            <label for="answer_body_<%= b.object.id %>">
+              <%= b.check_box %>
+              <%= b.label %>
+            </label>
+          </div>
+        <% end %>
+      </div>
+      <p><%= form.submit t(".next") %></p>
+    <% end %>
+  </div>
+</div>

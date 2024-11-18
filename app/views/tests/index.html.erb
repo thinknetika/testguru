@@ -1,15 +1,12 @@
 <h1><%= t(".header") %></h1>
 
-<% if @tests.present? %>
-  <table>
-    <tr>
-      <th><%= t(".question") %></th>
-      <th><%= t(".level") %></th>
-      <th><%= t(".questions") %></th>
-      <th><%= t(".actions") %></th>
-    </tr>
-    <%= render @tests %>
-  </table>
-<% else %>
-  <h1><%= t(".no_tests") %></h1>
-<% end %>
+<div class="container">
+  <div class="row">
+    <% if @tests.present? %>
+
+  <%= render @tests %>
+    <% else %>
+      <p><%= t(".no_tests") %></p>
+    <% end %>
+  </div>
+</div>

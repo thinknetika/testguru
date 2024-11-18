@@ -1,5 +1,13 @@
-<%= t('.header', title: @test_passage.test.title) %>
-
-<%= test_result_message(@test_passage) %>
-
-<%= link_to t(".tests"), tests_path %>
+<div class="container">
+  <div class="card mb-4">
+    <div class="card-header">
+      <%= t('.header', title: @test_passage.test.title) %>
+    </div>
+    <div class="card-body">
+      <%= test_result_message(@test_passage) %>
+    </div>
+    <div class="card-footer">
+      <%= link_to t(".tests"), tests_path, class: "btn btn-primary" %>
+    </div>
+  </div>
+</div>
