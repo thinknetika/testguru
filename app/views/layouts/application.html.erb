@@ -2,6 +2,7 @@
 <html>
 <head>
   <title><%= content_for(:title) || "Testguru" %></title>
+  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <%= csrf_meta_tags %>
@@ -20,9 +21,11 @@
 <body>
 <%= render 'shared/header' %>
 
-<%= render 'shared/flash' %>
+<div class="container">
+  <%= render 'shared/flash' %>
 
-<%= yield %>
+  <%= yield %>
+</div>
 
 <%= render 'shared/footer' %>
 </body>
