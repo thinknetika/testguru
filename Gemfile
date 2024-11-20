@@ -35,6 +35,9 @@ gem 'rails-i18n', '~> 7.0.0'
 gem 'bootstrap', '~> 5.2.0'
 gem 'sassc-rails'
 
+# GITHUB GIST
+gem 'octokit', '~> 4.21'
+
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "tzinfo-data", platforms: %i[ windows jruby ]
 

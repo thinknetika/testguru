@@ -23,3 +23,8 @@ ru:
         success: "Ответ удалён"
     base:
       not_authorized: "Вы не авторизованы для просмотра этой страницы"
+  gists:
+    create:
+      success: "Gist успешно сохранен"
+      failure: "Во время сохранения gist произошла ошибка"
+    result: "Перейти на %{link}"

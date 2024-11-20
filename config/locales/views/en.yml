@@ -77,9 +77,16 @@ en:
       panel: "%{title} Admin Panel"
       logout: "Logout"
       welcome: "Welcome,"
-      admin_panel: ""
-      login: ""
-      signup: ""
+      gists: "All gists"
+    gists:
+      index:
+        header: "All gists"
+        question: "Question"
+        link: "Link to gist"
+        first_name: "First name"
+        email: "Email"
+      gist:
+        show: "Show gist"
 
   shared:
     errors:
@@ -100,6 +107,7 @@ en:
       questions: "All question: %{count}"
       id: "Question №: %{id}"
       next: 'Next'
+      create: "Create gist"
     result:
       header: "Test %{title} complete!"
       tests: "All tests"

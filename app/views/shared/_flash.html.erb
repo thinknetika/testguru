@@ -1,5 +1,7 @@
 <% flash.each do |key, value| %>
   <%= content_tag(:div, class: "alert #{bootstrap_flash_class(key)} alert-dismissible fade show", role: "alert") do %>
     <%= value %>
-  <% end %>
+    <% if flash[:link] %>
+      <%= link_to flash[:link]['text'], flash[:link]['url'] %>
+    <% end %>  <% end %>
 <% end %>

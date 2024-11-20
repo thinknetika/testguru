@@ -77,9 +77,16 @@ ru:
       panel: "%{title} Административная Панель"
       logout: "Выход"
       welcome: "Добро пожаловать,"
-      admin_panel: ""
-      login: ""
-      signup: ""
+      gists: "Все gists"
+    gists:
+      index:
+        header: "Все Gist"
+        question: "Вопром"
+        link: "Ссылка на gist"
+        first_name: "Имя"
+        email: "Электронная почта"
+      gist:
+        show: "Показать gist"
   shared:
     errors:
       header:
@@ -101,6 +108,7 @@ ru:
       questions: "Всего вопросов: %{count}"
       id: "Вопрос №: %{id}"
       next: "Следующий"
+      create: "Создать gist"
     result:
       header: "Тест %{title} завершен!"
       tests: "Все тесты"

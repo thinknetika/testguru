@@ -23,3 +23,8 @@ en:
         success: "Answer delete"
     base:
       not_authorized: "You are not authorized to view this page"
+  gists:
+    create:
+      success: "Gist was successfully created"
+      failure: "An error occurred while saving gist"
+    result: "Go to %{link}"
