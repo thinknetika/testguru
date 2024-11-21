@@ -31,9 +31,10 @@ gem "devise", "~> 4.0"
 # LOCALISATION
 gem 'rails-i18n', '~> 7.0.0'
 
-# STYLES
+# UI
 gem 'bootstrap', '~> 5.2.0'
 gem 'sassc-rails'
+gem 'octicons_helper'
 
 # GITHUB GIST
 gem 'octokit', '~> 4.21'
