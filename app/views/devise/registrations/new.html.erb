@@ -8,31 +8,28 @@
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
 
-  <div class="field">
+  <div data-controller="password-match" class="mb-3">
     <%= f.label :password, t("devise.form.registrations.password") %>
     <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
+      <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
+    <%= f.password_field :password, id: "user_password", data: { "password-match-target": "password" }, autocomplete: "new-password", class: "form-control" %>
     <%= f.label :password_confirmation, t("devise.form.registrations.password_confirmation") %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    <%= f.password_field :password_confirmation, id: "user_password_confirmation", data: { "password-match-target": "confirmation" }, autocomplete: "new-password", class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="field mb-3">
     <%= f.label :first_name, t("devise.form.registrations.first_name") %><br />
-    <%= f.password_field :first_name, autocomplete: "first-name" %>
+    <%= f.text_field :first_name, autocomplete: "first-name", class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="field mb-3">
     <%= f.label :last_name, t("devise.form.registrations.last_name") %><br />
-    <%= f.password_field :last_name, autocomplete: "last-name" %>
+    <%= f.text_field :last_name, autocomplete: "last-name", class: "form-control" %>
   </div>
 
   <div class="actions">
-    <%= f.submit t("devise.form.registrations.submit") %>
+    <%= f.submit t("devise.form.registrations.submit"), class: "btn btn-primary" %>
   </div>
 <% end %>
 
