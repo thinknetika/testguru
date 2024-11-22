@@ -2,7 +2,7 @@
 
 <% if @tests.present? %>
   <%= link_to t("admin.tests.index.new"), new_admin_test_path %>
-  <table data-controller="tests-table">
+  <table class="table table-striped" data-controller="tests-table">
     <thead>
     <tr>
       <th data-tests-table-target="questionHeader">
