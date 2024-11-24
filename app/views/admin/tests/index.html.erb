@@ -2,14 +2,22 @@
 
 <% if @tests.present? %>
   <%= link_to t("admin.tests.index.new"), new_admin_test_path %>
-  <table>
+  <table class="table table-striped" data-controller="tests-table">
+    <thead>
     <tr>
-      <th><%= t("admin.tests.index.question") %></th>
+      <th data-tests-table-target="questionHeader">
+        <%= t("admin.tests.index.question") %>
+        <span data-tests-table-target="arrowUp" class="text-success"> <%= octicon 'arrow-up' %> </span>
+        <span data-tests-table-target="arrowDown" class="text-success d-none"> <%= octicon 'arrow-down' %> </span>
+      </th>
       <th><%= t("admin.tests.index.level") %></th>
       <th><%= t("admin.tests.index.questions") %></th>
       <th colspan="4"><%= t("admin.tests.index.actions") %></th>
     </tr>
+    </thead>
+    <tbody>
     <%= render partial: 'admin/tests/test', collection: @tests %>
+    </tbody>
   </table>
 <% else %>
   <h1><%= t("admin.tests.index.no_tests") %></h1>
