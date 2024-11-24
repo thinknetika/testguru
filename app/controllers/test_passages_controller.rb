@@ -11,6 +11,7 @@ class TestPassagesController < ApplicationController
 
     if @test_passage.completed?
       TestsMailer.completed_test(@test_passage).deliver_now
+      BadgeService.new(@test_passage).call
 
       redirect_to result_test_passage_path(@test_passage), status: :see_other
     else

@@ -1,17 +1,35 @@
-<h1><%= t("admin.tests.show.title") %>:</h1>
+<h1><%= t("admin.tests.show.title") %>: <%= @test.title %></h1>
 
-<table>
+<table class="table table-bordered">
+  <tbody>
   <tr>
+    <th><%= t("admin.tests.show.title") %></th>
     <td><%= @test.title %></td>
-    <td><%= @test.level %></td>
-    <td><%= link_to t("admin.tests.show.edit"), edit_admin_test_path(@test) %></td>
-    <td><%= link_to t("admin.tests.show.delete"),
-                    admin_test_path(@test),
-                    data: { turbo_method: :delete,
-                            turbo_confirm: t("admin.tests.show.confirm") } %></td>
-    <td><%= link_to t("admin.tests.show.question"), new_admin_test_question_path(@test) %></td>
-    <td><%= link_to t("admin.tests.show.back"), admin_tests_path %></td>
   </tr>
+  <tr>
+    <th><%= t("admin.tests.show.level") %></th>
+    <td><%= @test.level %></td>
+  </tr>
+  <tr>
+    <th><%= t("admin.tests.show.actions") %></th>
+    <td>
+      <div class="btn-group">
+        <%= link_to t("admin.tests.show.question"), new_admin_test_question_path(@test),
+                    class: "btn btn-primary btn-sm" %>
+        <%= link_to t("admin.tests.show.edit"), edit_admin_test_path(@test),
+                    class: "btn btn-warning btn-sm" %>
+        <%= link_to t("admin.tests.show.delete"), admin_test_path(@test),
+                    method: :delete,
+                    data: { turbo_confirm: t("admin.tests.show.confirm") },
+                    class: "btn btn-danger btn-sm" %>
+        <%= link_to t("admin.tests.show.back"), admin_tests_path,
+                    class: "btn btn-secondary btn-sm" %>
+      </div>
+    </td>
+  </tr>
+  </tbody>
 </table>
 
-<%= render partial: 'admin/questions/question', collection: @test.questions %>
+<div class="container">
+  <%= render partial: 'admin/questions/question', collection: @test.questions %>
+</div>

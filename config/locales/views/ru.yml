@@ -51,6 +51,7 @@ ru:
         questions: "Вопросы"
         actions: "Действия"
         no_tests: "Нет тестов"
+        badges: ""
       test:
         show: "Посмотреть"
         edit: "Редактировать"
@@ -73,11 +74,15 @@ ru:
         question: "Новый вопрос"
         back: "Назад"
         confirm: "Вы уверены?"
+      form_inline:
+        submit: "Save"
     nav:
       panel: "%{title} Административная Панель"
       logout: "Выход"
       welcome: "Добро пожаловать,"
       gists: "Все gists"
+      badges: "Все достижения"
+      tests: "Все тесты"
     gists:
       index:
         header: "Все Gist"
@@ -87,6 +92,28 @@ ru:
         email: "Электронная почта"
       gist:
         show: "Показать gist"
+    badges:
+      show:
+        title: "Достижение"
+        edit: "Редактировать"
+        delete: "Удалить"
+        back: "Назад"
+        image: "Изображение"
+        rule_name: "Название правила"
+        rule_value: "Содержимое правила"
+      index:
+        new: "Новое достижение"
+        title: "Название"
+        image: "Изображение"
+        rule_name: "Название правила"
+        rule_value: "Содержимое правила"
+        actions: "Действия"
+        no_badges: "Нет достижений"
+      badge:
+        show: "Посмотреть"
+        edit: "Редактировать"
+        delete: "Удалить"
+        confirm: "Сохранить"
   shared:
     errors:
       header:
@@ -102,6 +129,8 @@ ru:
       signup: "Регистрация"
       welcome: "Добро пожаловать,"
       admin_panel: "Панель адмнистратора"
+      appeal: "Обращение в техподдержку"
+      badges: "Достижения"
   test_passages:
     show:
       title: "Прохождение %{title} тест"
@@ -124,4 +153,21 @@ ru:
       questions: "Вопросы"
       actions: "Действия"
       no_tests: "Нет тестов"
+  supports:
+    support:
+      title: "Обратится в техподдержку"
+      name: "Ваше имя"
+      email: "Ваша электронная почта"
+      message: "Сообщение"
+      send: "Отправить"
+  badges:
+    index:
+      title: "Достижения"
+      image: "Изображение"
+      rule_name: "Имя правила"
+      rule_value: "Значение правила"
+      no_user_badges: "У вас нет достижений"
+      no_badges: "Нет достижений"
+      user_badges: "Ваши достижения"
+      all_badges: "Все достижения"
 

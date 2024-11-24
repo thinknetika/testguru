@@ -51,6 +51,7 @@ en:
         questions: "Questions"
         actions: "Actions"
         no_tests: "No tests"
+        badges: ""
       test:
         show: "Show"
         edit: "Edit"
@@ -73,11 +74,15 @@ en:
         question: "New question"
         back: "Back"
         confirm: "Are you sure?"
+      form_inline:
+        submit: "Сохранить"
     nav:
       panel: "%{title} Admin Panel"
       logout: "Logout"
       welcome: "Welcome,"
       gists: "All gists"
+      badges: "All badges"
+      tests: "All tests"
     gists:
       index:
         header: "All gists"
@@ -87,6 +92,28 @@ en:
         email: "Email"
       gist:
         show: "Show gist"
+    badges:
+      show:
+        title: "Badge"
+        edit: "Edit"
+        delete: "Delete"
+        back: "Back"
+        image: "Image"
+        rule_name: "Rule name"
+        rule_value: "Rule value"
+      index:
+        new: "New badge"
+        title: "Title"
+        image: "Image"
+        rule_name: "Rule name"
+        rule_value: "Rule value"
+        actions: "Actions"
+        no_badges: "No badges"
+      badge:
+        show: "Show"
+        edit: "Edit"
+        delete: "Delete"
+        confirm: "Confirm"
 
   shared:
     errors:
@@ -101,6 +128,8 @@ en:
       signup: "Sign up"
       welcome: "Welcome,"
       admin_panel: "Admin panel"
+      appeal: "Contacting technical support"
+      badges: "Badges"
   test_passages:
     show:
       title: "Passing the %{title} test"
@@ -123,3 +152,20 @@ en:
       questions: "Questions"
       actions: "Actions"
       no_tests: "No tests"
+  supports:
+    support:
+      title: "Contact technical support"
+      name: "Your name"
+      email: "Your email"
+      message: "Your message"
+      send: "Send"
+  badges:
+    index:
+      title: "Badges"
+      image: "Image"
+      rule_name: "Rule name"
+      rule_value: "Rule value"
+      no_user_badges: "No yours badges"
+      no_badges: "No badges"
+      user_badges: "Your badges"
+      all_badges: "All badges"

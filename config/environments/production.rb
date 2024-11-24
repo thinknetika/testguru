@@ -56,11 +56,11 @@ Rails.application.configure do
 
   # Log to STDOUT by default
   config.logger = ActiveSupport::Logger.new(STDOUT)
-    .tap  { |logger| logger.formatter = ::Logger::Formatter.new }
-    .then { |logger| ActiveSupport::TaggedLogging.new(logger) }
+                                       .tap { |logger| logger.formatter = ::Logger::Formatter.new }
+                                       .then { |logger| ActiveSupport::TaggedLogging.new(logger) }
 
   # Prepend all log lines with the following tags.
-  config.log_tags = [ :request_id ]
+  config.log_tags = [:request_id]
 
   # "info" includes generic and useful information about system operation, but avoids logging too much
   # information to avoid inadvertent exposure of personally identifiable information (PII). If you
@@ -74,10 +74,23 @@ Rails.application.configure do
   # config.active_job.queue_adapter = :resque
   # config.active_job.queue_name_prefix = "testguru_production"
 
-  # Disable caching for Action Mailer templates even if Action Controller
-  # caching is enabled.
+  # Mailer configuration
   config.action_mailer.perform_caching = false
-
+  config.action_mailer.default_url_options = { host: "https://test-guru-app.onrender.com" }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.smtp_settings =
+    {
+      address: "smtp.yandex.ru",
+      port: 465,
+      domain: "yandex.ru",
+      user_name: Rails.application.credentials.smtp[:user_name],
+      password: Rails.application.credentials.smtp[:password],
+      authentication: "plain",
+      tls: true,
+      enable_starttls_auto: true,
+      ssl: true
+    }
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
   # config.action_mailer.raise_delivery_errors = false
@@ -99,4 +112,6 @@ Rails.application.configure do
   # ]
   # Skip DNS rebinding protection for the default health check endpoint.
   # config.host_authorization = { exclude: ->(request) { request.path == "/up" } }
+
+  config.action_controller.default_url_options = { host: "https://test-guru-app.onrender.com" }
 end
