@@ -73,6 +73,8 @@ en:
         question: "New question"
         back: "Back"
         confirm: "Are you sure?"
+      form_inline:
+        submit: "Сохранить"
     nav:
       panel: "%{title} Admin Panel"
       logout: "Logout"

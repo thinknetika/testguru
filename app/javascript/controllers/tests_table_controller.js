@@ -1,4 +1,4 @@
-import { Controller } from "@hotwired/stimulus";
+import {Controller} from "@hotwired/stimulus";
 
 export default class extends Controller {
     static targets = ["questionHeader", "arrowUp", "arrowDown"];
@@ -9,7 +9,6 @@ export default class extends Controller {
         if (!tableBody) return;
 
         const rows = Array.from(tableBody.querySelectorAll('tr'));
-
         rows.sort((a, b) => {
             const aQuestion = a.cells[0].textContent.trim().toLowerCase() || "";
             const bQuestion = b.cells[0].textContent.trim().toLowerCase() || "";
@@ -23,7 +22,6 @@ export default class extends Controller {
         this.swapIcons();
         this.ascending = !this.ascending;
     }
-
 
     swapIcons() {
         this.arrowUpTarget.classList.toggle('d-none');

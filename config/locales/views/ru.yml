@@ -73,6 +73,8 @@ ru:
         question: "Новый вопрос"
         back: "Назад"
         confirm: "Вы уверены?"
+      form_inline:
+        submit: "Save"
     nav:
       panel: "%{title} Административная Панель"
       logout: "Выход"
