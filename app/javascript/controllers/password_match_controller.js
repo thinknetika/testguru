@@ -18,27 +18,15 @@ export default class extends Controller {
       this.confirmationTarget.classList.remove("is-valid");
       this.confirmationTarget.classList.add("is-invalid");
 
-      console.log(this.confirmationTarget)
-      console.log(this.confirmationTarget)
-
       this.passwordTarget.classList.remove("is-valid");
       this.passwordTarget.classList.add("is-invalid");
-
-      console.log(this.confirmationTarget)
-      console.log(this.confirmationTarget)
     }
     else {
       this.confirmationTarget.classList.remove("is-invalid");
       this.confirmationTarget.classList.add("is-valid");
 
-      console.log(this.confirmationTarget)
-      console.log(this.confirmationTarget)
-
       this.passwordTarget.classList.remove("is-invalid");
       this.passwordTarget.classList.add("is-valid");
-
-      console.log(this.confirmationTarget)
-      console.log(this.confirmationTarget)
     }
   }
 }
