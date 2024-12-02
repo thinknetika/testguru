@@ -5,8 +5,6 @@ categories_collection = [
 
 categories = Category.create!(categories_collection)
 
-User.create!(email: 'user1@mail.ru', password: '123456')
-
 admin_first_name = Rails.application.credentials.administrator[:first_name]
 admin_last_name = Rails.application.credentials.administrator[:last_name]
 admin_email = Rails.application.credentials.administrator[:email]
