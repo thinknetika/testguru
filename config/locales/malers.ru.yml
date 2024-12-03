@@ -4,3 +4,7 @@ ru:
       subject: "Поздравления! Вы завершили %{title} тест. Почему бы не пройти "
       more: "ещё"
       great: "Отлично"
+  contacts_mailer:
+    send_email:
+      title: "Сообщение с TestGuru, от %{name}, email: %{email}"
+

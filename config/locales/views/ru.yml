@@ -104,6 +104,7 @@ ru:
       signup: "Регистрация"
       welcome: "Добро пожаловать,"
       admin_panel: "Панель адмнистратора"
+      appeal: "Обращение в техподдержку"
   test_passages:
     show:
       title: "Прохождение %{title} тест"
@@ -126,4 +127,11 @@ ru:
       questions: "Вопросы"
       actions: "Действия"
       no_tests: "Нет тестов"
+  supports:
+    support:
+      title: "Обратится в техподдержку"
+      name: "Ваше имя"
+      email: "Ваша электронная почта"
+      message: "Сообщение"
+      send: "Отправить"
 

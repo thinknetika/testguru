@@ -1,7 +1,10 @@
 <% flash.each do |key, value| %>
-  <%= content_tag(:div, class: "alert #{bootstrap_flash_class(key)} alert-dismissible fade show", role: "alert") do %>
-    <%= value %>
-    <% if flash[:link] %>
-      <%= link_to flash[:link]['text'], flash[:link]['url'] %>
-    <% end %>  <% end %>
+  <div class="alert <%= bootstrap_flash_class(key) %> alert-dismissible fade show" role="alert">
+    <% if value["url"] %>
+      <%= link_to value["message"], value["url"], target: "_blank" %>
+    <% else %>
+      <%= value %>
+    <% end %>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
 <% end %>

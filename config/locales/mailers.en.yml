@@ -4,3 +4,6 @@ en:
       subject: "Congratulation! You finish %{title} test. Why do you "
       more: "more"
       great: "Great"
+  contacts_mailer:
+    send_email:
+      title: "Message from TestGuru, from %{name}, email: %{email}"

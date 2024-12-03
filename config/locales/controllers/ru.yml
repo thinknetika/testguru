@@ -28,3 +28,7 @@ ru:
       success: "Gist успешно сохранен"
       failure: "Во время сохранения gist произошла ошибка"
     result: "Перейти на %{link}"
+  message:
+    create:
+      success: "Сообщение отправлено"
+      error: "Сообщение не отправлено"

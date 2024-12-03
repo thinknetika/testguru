@@ -4,8 +4,6 @@ source "https://rubygems.org"
 gem "rails", "~> 7.2.1", ">= 7.2.1.2"
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
-# Use sqlite3 as the database for Active Record
-gem "sqlite3", ">= 1.4"
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", ">= 5.0"
 # Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
@@ -29,15 +27,15 @@ gem "jbuilder"
 gem "devise", "~> 4.0"
 
 # LOCALISATION
-gem 'rails-i18n', '~> 7.0.0'
+gem "rails-i18n", "~> 7.0.0"
 
 # UI
-gem 'bootstrap', '~> 5.2.0'
-gem 'sassc-rails'
-gem 'octicons_helper'
+gem "bootstrap", "~> 5.2.0"
+gem "sassc-rails"
+gem "octicons_helper"
 
 # GITHUB GIST
-gem 'octokit', '~> 4.21'
+gem "octokit", "~> 4.21"
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "tzinfo-data", platforms: %i[ windows jruby ]
@@ -48,9 +46,14 @@ gem "bootsnap", require: false
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
+gem "faraday-retry"
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"
+
+  # Use sqlite3 as the database for Active Record in development & test
+  gem "sqlite3", ">= 1.4"
 
   # Static analysis for security vulnerabilities [https://brakemanscanner.org/]
   gem "brakeman", require: false
@@ -62,11 +65,15 @@ end
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
-  gem 'letter_opener'
+  gem "letter_opener"
 end
 
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem "capybara"
   gem "selenium-webdriver"
+end
+
+group :production do
+  gem "pg", "~> 1.5.9"
 end

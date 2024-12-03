@@ -103,6 +103,7 @@ en:
       signup: "Sign up"
       welcome: "Welcome,"
       admin_panel: "Admin panel"
+      appeal: "Contacting technical support"
   test_passages:
     show:
       title: "Passing the %{title} test"
@@ -125,3 +126,10 @@ en:
       questions: "Questions"
       actions: "Actions"
       no_tests: "No tests"
+  supports:
+    support:
+      title: "Contact technical support"
+      name: "Your name"
+      email: "Your email"
+      message: "Your message"
+      send: "Send"
