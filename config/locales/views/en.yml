@@ -130,6 +130,7 @@ en:
       admin_panel: "Admin panel"
       appeal: "Contacting technical support"
       badges: "Badges"
+
   test_passages:
     show:
       title: "Passing the %{title} test"

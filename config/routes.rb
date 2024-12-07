@@ -3,7 +3,6 @@ Rails.application.routes.draw do
 
   resources :supports, only: %i[new create]
 
-  resources :badges, only: :index
 
   devise_for :users, path: :gurus, path_names: { sign_in: :login, sign_out: :logout },
              controllers: { sessions: "sessions" }

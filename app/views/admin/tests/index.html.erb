@@ -5,6 +5,7 @@
 </div>
 
 <% if @tests.present? %>
+  <%= link_to t("admin.tests.index.new"), new_admin_test_path %>
   <div data-controller="tests-inline-form">
     <div data-tests-inline-form-target="errors">
       <%= render 'shared/errors', resource: @test %>

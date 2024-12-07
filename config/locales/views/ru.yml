@@ -130,7 +130,6 @@ ru:
       welcome: "Добро пожаловать,"
       admin_panel: "Панель адмнистратора"
       appeal: "Обращение в техподдержку"
-      badges: "Достижения"
   test_passages:
     show:
       title: "Прохождение %{title} тест"
