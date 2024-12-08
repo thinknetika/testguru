@@ -1,0 +1,13 @@
+<% if badge_type.present? %>
+  <% case badge_type %>
+<% when "attempt" %>
+    <div>
+      <%= label_tag :rule_value, t('.rule_value'), class: "form-label" %>
+      <%= number_field_tag :rule_value, nil, id: :badge_rule_value, class: "form-control", name: "badge[rule_value]" %>
+    </div>
+  <% when "level", "category" %>
+    <p><%= t(".no_options_#{badge_type}") %></p>
+  <% else %>
+    <p><%= t(".no_options") %></p>
+  <% end %>
+<% end %>

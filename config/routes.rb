@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   resources :supports, only: %i[new create]
 
+
   devise_for :users, path: :gurus, path_names: { sign_in: :login, sign_out: :logout },
              controllers: { sessions: "sessions" }
 
@@ -23,5 +24,8 @@ Rails.application.routes.draw do
       end
     end
     resources :gists, only: %i[index]
+    resources :badges do
+      get :options, on: :collection
+    end
   end
 end

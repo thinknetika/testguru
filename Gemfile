@@ -37,6 +37,10 @@ gem "octicons_helper"
 # GITHUB GIST
 gem "octokit", "~> 4.21"
 
+# IMAGES
+gem "image_processing", ">= 1.2"
+gem "ruby-vips", "~> 2.2", ">= 2.2.2"
+
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "tzinfo-data", platforms: %i[ windows jruby ]
 

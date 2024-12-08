@@ -1,9 +1,15 @@
-<tr>
-  <td><%= question.body %></td>
-  <td><%= link_to t("admin.questions.question.show"), admin_question_path(question) %></td>
-  <td><%= link_to t("admin.questions.question.edit"), edit_admin_question_path(question) %></td>
-  <td><%= link_to t("admin.questions.question.delete"),
-                  admin_question_path(question),
-                  data: { turbo_method: :delete,
-                          turbo_confirm: t("admin.questions.question.confirm") } %></td>
-</tr>
+<div class="card mb-3">
+  <div class="card-body">
+    <h6 class="card-title"><%= question.body %></h6>
+    <div class="btn-group" role="group">
+      <%= link_to t("admin.questions.question.show"), admin_question_path(question),
+                  class: "btn btn-info btn-sm" %>
+      <%= link_to t("admin.questions.question.edit"), edit_admin_question_path(question),
+                  class: "btn btn-warning btn-sm" %>
+      <%= link_to t("admin.questions.question.delete"), admin_question_path(question),
+                  method: :delete,
+                  data: { turbo_confirm: t("admin.questions.question.confirm") },
+                  class: "btn btn-danger btn-sm" %>
+    </div>
+  </div>
+</div>

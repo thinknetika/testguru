@@ -19,9 +19,15 @@ class Test < ApplicationRecord
   scope :medium, -> { where level: 2..4 }
   scope :hard, -> { where level: 5..Float::INFINITY }
   scope :by_level, ->(level) { where level: level }
+  scope :by_level_and_ids, ->(level, ids) { where(level: level, id: ids) }
   scope :order_by_category_title, ->(category_title) {
     joins(:category).
       where(categories: { title: category_title }).
+      order(title: :desc)
+  }
+  scope :by_category, lambda {
+    |id| joins(:category).
+      where(categories: { id: }).
       order(title: :desc)
   }
 

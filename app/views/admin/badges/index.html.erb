@@ -1,0 +1,30 @@
+<h1><%= t("admin.tests.index.title") %></h1>
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+  <%= link_to t("admin.badges.index.new"), new_admin_badge_path, class: "btn btn-primary" %>
+</div>
+
+<div>
+  <%= render 'shared/errors', resource: @badge %>
+</div>
+
+<% if @badges.present? %>
+  <table class="table table-striped table-hover text-center">
+    <thead>
+    <tr>
+      <th><%= t("admin.badges.index.title") %></th>
+      <th><%= t("admin.badges.index.image") %></th>
+      <th><%= t("admin.badges.index.rule_name") %></th>
+      <th><%= t("admin.badges.index.rule_value") %></th>
+      <th colspan="4"><%= t("admin.badges.index.actions") %></th>
+    </tr>
+    </thead>
+    <tbody>
+    <%= render partial: 'admin/badges/badge', collection: @badges %>
+    </tbody>
+  </table>
+<% else %>
+  <div class="alert alert-info text-center mt-3">
+    <%= t("admin.badges.index.no_badges") %>
+  </div>
+<% end %>

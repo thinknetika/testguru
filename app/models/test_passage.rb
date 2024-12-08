@@ -7,6 +7,10 @@ class TestPassage < ApplicationRecord
 
   before_validation :set_question, on: %i[ create update ]
 
+  before_update :update_passed_status
+
+  scope :passed_tests, -> { where(passed: true) }
+
   def completed?
     current_question.nil?
   end
@@ -25,6 +29,14 @@ class TestPassage < ApplicationRecord
 
   def test_rate
     self.correct_questions.to_f / self.test.questions.count * 100
+  end
+
+  def update_passed_status
+    self.passed = completed? && success?
+  end
+
+  def passed_tests_id
+    user.test_passages.passed_tests.pluck(:test_id).uniq
   end
 
   private

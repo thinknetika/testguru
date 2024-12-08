@@ -1,0 +1,57 @@
+<h1><%= t("admin.tests.index.badges") %></h1>
+
+<% if @badges.present? %>
+  <div class="card mb-3">
+    <div class="card-header">
+      <h3><%= t("badges.index.all_badges") %></h3>
+    </div>
+    <div class="card-body">
+      <table class="table table-striped table-hover text-center">
+        <thead>
+        <tr>
+          <th><%= t("badges.index.title") %></th>
+          <th><%= t("badges.index.image") %></th>
+          <th><%= t("badges.index.rule_name") %></th>
+          <th><%= t("badges.index.rule_value") %></th>
+        </tr>
+        </thead>
+        <tbody>
+        <%= render partial: 'badges/badge', collection: @badges %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+<% end %>
+
+<% if @user_badges.present? %>
+  <div class="card">
+    <div class="card-header">
+      <h3><%= t("badges.index.user_badges") %></h3>
+    </div>
+    <div class="card-body">
+      <table class="table table-striped table-hover text-center">
+        <thead>
+        <tr>
+          <th><%= t("badges.index.title") %></th>
+          <th><%= t("badges.index.image") %></th>
+          <th><%= t("badges.index.rule_name") %></th>
+          <th><%= t("badges.index.rule_value") %></th>
+        </tr>
+        </thead>
+        <tbody>
+        <%= render partial: 'badges/badge', collection: @user_badges %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+<% else %>
+  <div class="alert alert-info text-center mt-3">
+    <%= t("badges.index.no_user_badges") %>
+  </div>
+<% end %>
+
+<% unless @badges.present? || @user_badges.present? %>
+  <div class="alert alert-info text-center mt-3">
+    <%= t("badges.index.no_badges") %>
+  </div>
+<% end %>

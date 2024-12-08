@@ -23,6 +23,12 @@ en:
         success: "Answer delete"
     base:
       not_authorized: "You are not authorized to view this page"
+    badges:
+      create:
+        success: "Badge create"
+      update:
+        success: "Badge update"
+      destroy: "Badge destroy"
   gists:
     create:
       success: "Gist was successfully created"

@@ -1,0 +1,25 @@
+<%= form_with(model: [:admin, badge]) do |form| %>  <%= render 'shared/errors', resource: badge %>
+
+  <div class="mb-3">
+    <%= form.label :title, class: "form-label" %>
+    <%= form.text_field :title, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :image, class: "form-label" %>
+    <%= form.file_field :image, class: "form-control" %>
+  </div>
+
+  <div data-controller="badges">
+    <div class="mb-3">
+      <%= form.label :rule_name, class: "form-label" %>
+      <%= form.select :rule_name, Badge::RULES, prompt: true, data: { controller: 'badges', action: "change->badges#update" }, class: "form-select", data: { action: "change->badges#update", "badges-target": "select" } %>
+    </div>
+
+    <div class="mb-3" id="badge-options" data-badges-target="options">
+    </div>
+  </div>
+  <div>
+    <%= form.submit class: "btn btn-primary" %>
+  </div>
+<% end %>

@@ -3,19 +3,17 @@
 <%= form_with model: [:admin, @question, @answer], local: true do |form| %>
   <%= render 'shared/errors', resource: @answer %>
 
-  <p>
-    <%= form.label :body, t("admin.answers.form.body") %>
+  <div class="mb-3">
+    <%= form.label :body, t("admin.answers.form.body"), class: "form-label" %>
+    <%= form.text_area :body, id: :answer_body, rows: 7, cols: 60, class: "form-control" %>
+  </div>
 
-    <%= form.text_area :body, id: :answer_body, rows: 7, cols: 60 %>
-  </p>
+  <div class="mb-3 form-check form-switch">
+    <%= form.check_box :correct, id: :answer_correct, class: "form-check-input" %>
+    <%= form.label :correct, t("admin.answers.form.correct"), class: "form-check-label" %>
+  </div>
 
-  <p>
-    <%= form.label :correct, t("admin.answers.form.correct") %>
-    <%= form.check_box :correct, id: :answer_correct %>
-  </p>
-
-  <p><%= form.submit t("admin.answers.form.submit") %></p>
+  <div>
+    <%= form.submit t("admin.answers.form.submit"), class: "btn btn-primary" %>
+  </div>
 <% end %>
-
-<%= link_to t("admin.answers.form.back"), admin_question_path(@answer.question) %>
-
