@@ -2,7 +2,10 @@ class TestPassagesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_test_passage
 
-  def show; end
+  def show
+    @test_passage.started_at = Time.now
+    @test_passage.save
+  end
 
   def result; end
 
@@ -19,6 +22,13 @@ class TestPassagesController < ApplicationController
     end
   end
 
+  def time_out_finish
+    if @test_passage
+      render json: { redirect_url: result_test_passage_path(@test_passage) }
+    else
+      render json: { error: 'Test passage not found' }, status: :not_found
+    end
+  end
   private
 
   def set_test_passage

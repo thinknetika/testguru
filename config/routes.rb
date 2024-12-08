@@ -13,8 +13,11 @@ Rails.application.routes.draw do
 
   resources :test_passages, only: %i[show update] do
     get :result, on: :member
+    post :time_out_finish, on: :member
     resources :gists, only: :create
   end
+
+  resources :badges, only: :index
 
   namespace :admin do
     resources :tests do

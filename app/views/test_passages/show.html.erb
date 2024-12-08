@@ -1,10 +1,24 @@
 <%= t(".title", title: @test_passage.test.title) %>
 
-<div data-controller="progress-bar">
-  <div data-progress-bar-target="progressBar" class="progress" role="progressbar" aria-labelledby="progressbarLabel" aria-valuemin="0" aria-valuemax="100" data-progress="<%= @test_passage.test_rate %>">
-    <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;"></div>
+<div class="row">
+  <div class="col-md-10">
+    <div data-controller="progress-bar">
+      <div data-progress-bar-target="progressBar" class="progress" role="progressbar" aria-labelledby="progressbarLabel" aria-valuemin="0" aria-valuemax="100" data-progress="<%= @test_passage.test_rate %>">
+        <div class="progress-bar bg-success" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;"></div>
+        <span id="progressbarLabel">Прогресс: 0%</span>
+      </div>
+    </div>
   </div>
-  <span id="progressbarLabel">Прогресс: 0%</span>
+  <div class="col-md-2">
+    <div data-controller="test-timer"
+         data-test-timer-time-limit-value="<%= @test_passage.test.time_limit %>"
+         data-test-timer-started-at="<%= @test_passage.started_at.to_i * 1000 %>"
+         data-test-timer-test-passage-id="<%= @test_passage.id %>">
+      <div data-test-timer-target="timer">
+        <%= @test_passage.test.time_limit %> мин
+      </div>
+    </div>
+  </div>
 </div>
 
 <div class="card mb-3">
