@@ -3,8 +3,10 @@ class TestPassagesController < ApplicationController
   before_action :set_test_passage
 
   def show
-    @test_passage.started_at = Time.now
-    @test_passage.save
+    unless @test_passage.started_at
+      @test_passage.started_at = Time.now
+      @test_passage.save!
+    end
   end
 
   def result; end
@@ -23,12 +25,10 @@ class TestPassagesController < ApplicationController
   end
 
   def time_out_finish
-    if @test_passage
-      render json: { redirect_url: result_test_passage_path(@test_passage) }
-    else
-      render json: { error: 'Test passage not found' }, status: :not_found
-    end
+    TestsMailer.completed_test(@test_passage).deliver_now
+    render json: { redirect_url: result_test_passage_path(@test_passage) }
   end
+
   private
 
   def set_test_passage

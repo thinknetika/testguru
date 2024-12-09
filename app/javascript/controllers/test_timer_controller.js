@@ -4,9 +4,9 @@ export default class extends Controller {
     static targets = ["timer"];
 
     connect() {
-        this.startedAtTimestamp = parseInt(this.data.get("startedAt")); //Сохраняем как timestamp
-        console.log("Started at timestamp:", this.startedAtTimestamp);
-        this.timeLimit = parseInt(this.data.get("timeLimitValue"));
+        this.startedAtTimestamp = parseInt(this.data.get("startedAt"));
+        this.timeLimit = parseInt(this.data.get("timeLimitValue")) * 60;
+        this.testPassageId = this.data.get("testPassageId");
         this.updateTimer();
         this.interval = setInterval(() => this.updateTimer(), 1000);
     }
@@ -17,7 +17,7 @@ export default class extends Controller {
 
     updateTimer() {
         const elapsedTime = Math.floor((Date.now() - this.startedAtTimestamp) / 1000);
-        const remainingTime = this.timeLimit * 60 - elapsedTime;
+        const remainingTime = this.timeLimit - elapsedTime;
 
         if (remainingTime <= 0) {
             this.timeUp();
@@ -29,18 +29,16 @@ export default class extends Controller {
     }
 
     timeUp() {
+        const csrfToken = document.querySelector('meta[name="csrf-token"]').content;
         clearInterval(this.interval);
-        fetch('/test_passages/' + this.data.get('testPassageId') + '/time_out_finish', { method: 'POST' })
-            .then(response => {
-                if (!response.ok) {
-                    console.error("HTTP error!", response.status);
-                    return; // или обработайте ошибку по-другому
-                }
-                return response.json();
-            })
-            .then(data => {
-                window.location.href = data.redirect_url;
-            })
-            .catch(error => console.error("Error:", error));
+        fetch(`/test_passages/${this.testPassageId}/time_out_finish`, {
+            method: 'POST',
+            headers: {
+                'X-CSRF-Token': csrfToken,
+                'Content-Type': 'application/json'
+            }
+        })
+            .then(response => response.json())
+            .then(data => window.location.href = data.redirect_url);
     }
 }

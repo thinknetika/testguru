@@ -14,10 +14,7 @@
          data-test-timer-time-limit-value="<%= @test_passage.test.time_limit %>"
          data-test-timer-started-at="<%= @test_passage.started_at.to_i * 1000 %>"
          data-test-timer-test-passage-id="<%= @test_passage.id %>">
-      <div data-test-timer-target="timer">
-        <%= @test_passage.test.time_limit %> мин
-      </div>
-    </div>
+      <div data-test-timer-target="timer"></div> </div>
   </div>
 </div>
 
