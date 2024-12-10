@@ -1,6 +1,10 @@
 <%= t(".title", title: @test_passage.test.title) %>
 
-<div class="row">
+<div class="row" data-controller="test-timer"
+     data-test-timer-time-limit-value="<%= @test_passage.test.time_limit %>"
+     data-test-timer-started-at="<%= @test_passage.created_at.to_i * 1000 %>"
+     data-test-timer-test-passage-id="<%= @test_passage.id %>">
+
   <div class="col-md-10">
     <div data-controller="progress-bar">
       <div data-progress-bar-target="progressBar" class="progress" role="progressbar" aria-labelledby="progressbarLabel" aria-valuemin="0" aria-valuemax="100" data-progress="<%= @test_passage.test_rate %>">
@@ -10,36 +14,35 @@
     </div>
   </div>
   <div class="col-md-2">
-    <div data-controller="test-timer"
-         data-test-timer-time-limit-value="<%= @test_passage.test.time_limit %>"
-         data-test-timer-started-at="<%= @test_passage.started_at.to_i * 1000 %>"
-         data-test-timer-test-passage-id="<%= @test_passage.id %>">
-      <div data-test-timer-target="timer"></div> </div>
+    <div data-test-timer-target="timer"></div>
   </div>
-</div>
 
-<div class="card mb-3">
-  <div class="card-body">
-    <h5 class="card-title"><b><%= @test_passage.current_question.body %></b></h5>
+  <div class="col-md-12">
+    <div class="card mb-3">
+      <div class="card-body">
+        <h5 class="card-title"><b><%= @test_passage.current_question.body %></b></h5>
 
 
-    <p class="card-text"><%= t(".questions", count: @test_passage.test.questions.count) %></p>
-    <p class="card-text"><%= t(".id", id: @test_passage.current_question.id) %></p>
+        <p class="card-text"><%= t(".questions", count: @test_passage.test.questions.count) %></p>
+        <p class="card-text"><%= t(".id", id: @test_passage.current_question.id) %></p>
 
-    <%= form_with url: test_passage_path(@test_passage), method: :put do |form| %>
-      <div class="form-group">
-        <%= form.collection_check_boxes :answer_ids, @test_passage.current_question.answers, :id, :body, include_hidden: false, id: :answer_body do |b| %>
-          <div class="form-check">
-            <label for="answer_body_<%= b.object.id %>">
-              <%= b.check_box %>
-              <%= b.label %>
-            </label>
+        <%= form_with url: test_passage_path(@test_passage), method: :put do |form| %>
+          <div class="form-group">
+            <%= form.collection_check_boxes :answer_ids, @test_passage.current_question.answers, :id, :body, include_hidden: false, id: :answer_body do |b| %>
+              <div class="form-check">
+                <label for="answer_body_<%= b.object.id %>">
+                  <%= b.check_box %>
+                  <%= b.label %>
+                </label>
+              </div>
+            <% end %>
           </div>
+          <p>
+            <%= form.submit t(".next"), class: "btn btn-primary", 'data-test-timer-target' => "submitButton" %>
+          </p>
         <% end %>
       </div>
-      <p><%= form.submit t(".next") %></p>
-    <% end %>
-
-    <p><%= link_to t('.create'), test_passage_gists_path(@test_passage), data: { turbo_method: :post } %></p>
+    </div>
   </div>
+  <p><%= link_to t('.create'), test_passage_gists_path(@test_passage), data: { turbo_method: :post } %></p>
 </div>

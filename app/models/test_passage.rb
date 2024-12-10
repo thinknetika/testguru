@@ -11,8 +11,8 @@ class TestPassage < ApplicationRecord
 
   scope :passed_tests, -> { where(passed: true) }
 
-  def completed?
-    current_question.nil?
+  def finished?
+    completed? || time_out?
   end
 
   def accept!(answer_ids)
@@ -40,6 +40,16 @@ class TestPassage < ApplicationRecord
   end
 
   private
+
+  def completed?
+    current_question.nil?
+  end
+
+  def time_out?
+    return false if test.time_limit == 0
+
+    (Time.zone.now - self.created_at).ceil >= test.time_limit * 60
+  end
 
   def set_question
     if new_record?

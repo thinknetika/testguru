@@ -1,11 +1,24 @@
-import { Controller } from "@hotwired/stimulus";
+import {Controller} from "@hotwired/stimulus";
 
 export default class extends Controller {
-    static targets = ["timer"];
+    static targets = ["timer", "submitButton"];
 
     connect() {
+        const timeLimitValue = parseFloat(this.data.get("timeLimitValue"));
+
+        if (isNaN(timeLimitValue)) {
+            console.warn("Invalid time limit value.  Not initializing timer.");
+            return;
+        }
+
+        if (timeLimitValue <= 0) {
+            this.timerTarget.textContent = "∞";
+            this.timerTarget.classList.add("infinity-large");
+            return;
+        }
+
         this.startedAtTimestamp = parseInt(this.data.get("startedAt"));
-        this.timeLimit = parseInt(this.data.get("timeLimitValue")) * 60;
+        this.timeLimit = timeLimitValue * 60;
         this.testPassageId = this.data.get("testPassageId");
         this.updateTimer();
         this.interval = setInterval(() => this.updateTimer(), 1000);
@@ -29,16 +42,11 @@ export default class extends Controller {
     }
 
     timeUp() {
-        const csrfToken = document.querySelector('meta[name="csrf-token"]').content;
         clearInterval(this.interval);
-        fetch(`/test_passages/${this.testPassageId}/time_out_finish`, {
-            method: 'POST',
-            headers: {
-                'X-CSRF-Token': csrfToken,
-                'Content-Type': 'application/json'
-            }
-        })
-            .then(response => response.json())
-            .then(data => window.location.href = data.redirect_url);
+        this.timerTarget.textContent = "0:00 мин";
+        this.timerTarget.classList.add("text-danger", "fw-bold");
+        this.submitButtonTarget.textContent = "Завершить";
+        this.submitButtonTarget.classList.add("btn-danger");
+        this.submitButtonTarget.closest('form').setAttribute('disabled', 'disabled');
     }
 }

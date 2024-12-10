@@ -1,7 +1,6 @@
 <h1><%= t("admin.tests.index.title") %></h1>
 
 <% if @tests.present? %>
-  <%= link_to t("admin.tests.index.new"), new_admin_test_path %>
   <table class="table table-striped" data-controller="tests-table">
     <thead>
     <tr>
