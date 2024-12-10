@@ -51,7 +51,8 @@ ru:
         questions: "Вопросы"
         actions: "Действия"
         no_tests: "Нет тестов"
-        badges: ""
+        badges: "Достижения"
+        time_limit: "Лимит времени"
       test:
         show: "Посмотреть"
         edit: "Редактировать"
@@ -67,6 +68,7 @@ ru:
         level: "Уровень"
         category: "Категория"
         submit: "Сохранить"
+        time_limit: "Лимит времени"
       show:
         title: "Тест"
         edit: "Редактировать"
@@ -74,6 +76,9 @@ ru:
         question: "Новый вопрос"
         back: "Назад"
         confirm: "Вы уверены?"
+        level: "Уровень"
+        actions: "Действия"
+        time_limit: "Лимит времени"
       form_inline:
         submit: "Save"
     nav:
@@ -130,6 +135,7 @@ ru:
       welcome: "Добро пожаловать,"
       admin_panel: "Панель адмнистратора"
       appeal: "Обращение в техподдержку"
+      badges: "Достижения"
   test_passages:
     show:
       title: "Прохождение %{title} тест"

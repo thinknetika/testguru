@@ -51,7 +51,8 @@ en:
         questions: "Questions"
         actions: "Actions"
         no_tests: "No tests"
-        badges: ""
+        badges: "Badges"
+        time_limit: "Time limit"
       test:
         show: "Show"
         edit: "Edit"
@@ -67,6 +68,7 @@ en:
         level: "Level"
         category: "Category"
         submit: "Save"
+        time_limit: "Time limit"
       show:
         title: "Test"
         edit: "Edit"
@@ -74,6 +76,9 @@ en:
         question: "New question"
         back: "Back"
         confirm: "Are you sure?"
+        level: "Level"
+        actions: "Actions"
+        time_limit: "Time limit"
       form_inline:
         submit: "Сохранить"
     nav:

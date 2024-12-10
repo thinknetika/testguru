@@ -2,4 +2,7 @@ ru:
   services:
     gist_question:
       create_gist: "Вопрос о %{@test.title} с TestGuru"
+  shared:
+    header:
+      badges: ""
 
